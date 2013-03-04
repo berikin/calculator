@@ -55,7 +55,6 @@ return Math.round(num*Math.pow(10,dec))/Math.pow(10,dec);
                 throw new AssertionError();
                 
         }
-        System.out.println(result);
          return roundToDecimals(result,decimalCounter);
     }
 }

@@ -19,15 +19,20 @@ import javax.swing.text.BadLocationException;
  * @author berik
  */
 public class BasicCalculator extends javax.swing.JFrame {
+    //////////////////////////////////////////////////
+    //////////////////////////////////////////////////
+    //ATRIBUTOS
+    //////////////////////////////////////////////////
+    //////////////////////////////////////////////////
 
     private int decimalCounter = 8;
-    private String showNumber = "0";
+    private String showNumber = "";
     private String txAHistoryStr = "";
     private OperationType operation = OperationType.NONE;
     private OperationType subOperation = OperationType.NONE;
-    private double operateOne;
+    private double operateOne = Double.MAX_VALUE;
     private double operateTwo = Double.MAX_VALUE;
-    private double result;
+    private double result = Double.MAX_VALUE;
 
     /**
      * Creates new form BasicCalculator
@@ -35,7 +40,11 @@ public class BasicCalculator extends javax.swing.JFrame {
     public BasicCalculator() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(64, 40, 89));
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        //BOTONES AGRUPADOS
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
         precisionDecimalsGroup.add(jRadioButtonNoDecimals);
         precisionDecimalsGroup.add(jRadioButtonOneDecimal);
         precisionDecimalsGroup.add(jRadioButtonTwoDecimals);
@@ -713,54 +722,52 @@ public class BasicCalculator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void numberClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberClick
-        // TODO add your handling code here:
-        if(txAHistoryStr.equals(""))
-        {showNumber="";}
-        if (!operation.equals(OperationType.BRACKETS) && !subOperation.equals(OperationType.RECIPROC)) {
-            if (TxfScreen.getText().equals("0") && evt.getActionCommand().equals("0")) {
-                showNumber = "0";
-            } else if (TxfScreen.getText().equals("0") && !evt.getActionCommand().equals("0")) {
-                if (showNumber.equals("0")) {
-                    showNumber = "";
-                }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        //Si nos encontramos en un reciproc debemos esperar a que se pulse un signo de operación
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        if (!subOperation.equals(OperationType.BRACKETS) && !subOperation.equals(OperationType.RECIPROC)) {
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            //El sistema solo acepta el número 0 si ya hay una coma (por tanto es un número decimal
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            if ((evt.getActionCommand().equals("0") && showNumber.indexOf(",") != -1) || !evt.getActionCommand().equals("0")) {
                 showNumber = showNumber + evt.getActionCommand();
                 txAHistoryStr = txAHistoryStr + (evt.getActionCommand());
                 TxfLive.setText(txAHistoryStr);
-            } else {
-                showNumber = showNumber + evt.getActionCommand();
-                if (!showNumber.equals("0") && !showNumber.equals(""))
-                {txAHistoryStr = txAHistoryStr + (evt.getActionCommand());}
-                TxfLive.setText(txAHistoryStr);
+                TxfScreen.setText(showNumber);
             }
-            TxfScreen.setText(showNumber);
         }
     }//GEN-LAST:event_numberClick
 
     private void jButtonCommaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCommaActionPerformed
-        // TODO add your handling code here:
-        if (showNumber.indexOf(",") == -1 && !(txAHistoryStr.equals("") && !showNumber.equals(""))) {
-            showNumber = showNumber + ",";
-            if (showNumber.equals(",")) {
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        //Solo escribe la coma si aún no existe. Si nuestro número está vacío y pulsamos coma asume que
+        //será un número decimal inferior a 1.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        if (showNumber.indexOf(",") == -1) {
+            if (showNumber.equals("")) {
                 showNumber = "0,";
-            }
-            TxfScreen.setText(showNumber);
-            if (showNumber.equals("0,")) {
-                
-                    txAHistoryStr = txAHistoryStr + ("0,");
-                
             } else {
-                txAHistoryStr = txAHistoryStr + (evt.getActionCommand());
+                showNumber = ",";
             }
-            TxfLive.setText(txAHistoryStr);
             TxfScreen.setText(showNumber);
+            txAHistoryStr = txAHistoryStr + (showNumber);
+            TxfLive.setText(txAHistoryStr);
         }
-
-
     }//GEN-LAST:event_jButtonCommaActionPerformed
 
     private void jButtonEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEqualsActionPerformed
-        // TODO add your handling code here: 
-        if ((!operation.equals(OperationType.NONE)) && !showNumber.isEmpty()) {
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        //Si nos encontramos en un reciproc debemos esperar a que se pulse un signo de operación
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        if (!operation.equals(OperationType.NONE) && operateOne != Double.MAX_VALUE && !showNumber.equals("") && !showNumber.equals("-") && !showNumber.equals("0,")) {
             showNumber = showNumber.replace(",", ".");
             operateTwo = Double.parseDouble(showNumber);
             txAHistoryStr = txAHistoryStr + (evt.getActionCommand());
@@ -774,56 +781,90 @@ public class BasicCalculator extends javax.swing.JFrame {
             TxfScreen.setText(showNumber);
             txAHistoryStr = txAHistoryStr + (showNumber);
             TxfLive.setText(txAHistoryStr);
-            //showNumber = "";
             TxAHistory.append(txAHistoryStr + "\n");
+            showNumber = "";
             txAHistoryStr = "";
             operation = OperationType.NONE;
             subOperation = OperationType.NONE;
             operateTwo = Double.MAX_VALUE;
+            operateOne = result;
         }
+
     }//GEN-LAST:event_jButtonEqualsActionPerformed
 
     private void jButtonClearEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearEndActionPerformed
         // TODO add your handling code here:
-        if (!showNumber.equals("0") || !showNumber.equals("")) {
-            int aux = showNumber.length();
-            showNumber = "0";
-            txAHistoryStr = txAHistoryStr.substring(0, (txAHistoryStr.length() - aux));
-            TxfLive.setText(txAHistoryStr);
-            TxfScreen.setText(showNumber);
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        //Comprobamos si tenemos que borrar un reciproc
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        if (!TxfLive.getText().equals("")) {
+            if (TxfLive.getText().substring((TxfLive.getText().length() - 1), TxfLive.getText().length()).equals("}")) {
+                int first = TxfLive.getText().lastIndexOf("R");
+                txAHistoryStr = txAHistoryStr.substring(0, first);
+                TxfLive.setText(txAHistoryStr);
+                TxfScreen.setText("0");
+                showNumber = "";
+                subOperation = OperationType.NONE;
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                //Solo realizamos operación de borrado si hay algo en la cadena
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+            }
         }
+        if (!showNumber.equals("")) {
 
+            if (txAHistoryStr.length() == 1) {
+                txAHistoryStr = "";
+            } else {
+                txAHistoryStr = txAHistoryStr.substring(0, (txAHistoryStr.length() - showNumber.length()));
+            }
+            showNumber = "";
+            TxfLive.setText(txAHistoryStr);
+            TxfScreen.setText("0");
+        }
     }//GEN-LAST:event_jButtonClearEndActionPerformed
 
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
-        // TODO add your handling code here:
-        if (TxfLive.getText().substring((TxfLive.getText().length() - 1), TxfLive.getText().length()).equals("}")) {
-
-            int first = TxfLive.getText().lastIndexOf("R");
-            txAHistoryStr = txAHistoryStr.substring(0, first);
-            TxfLive.setText(txAHistoryStr);
-            TxfScreen.setText("0");
-            showNumber = "0";
-            subOperation = OperationType.NONE;
-        } else if (!showNumber.equals("0")) {
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        //Comprobamos si tenemos que borrar un reciproc
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        if (!TxfLive.getText().equals("")) {
+            if (TxfLive.getText().substring((TxfLive.getText().length() - 1), TxfLive.getText().length()).equals("}")) {
+                int first = TxfLive.getText().lastIndexOf("R");
+                txAHistoryStr = txAHistoryStr.substring(0, first);
+                TxfLive.setText(txAHistoryStr);
+                TxfScreen.setText("0");
+                showNumber = "";
+                subOperation = OperationType.NONE;
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                //Solo realizamos operación de borrado si hay algo en la cadena
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+            }
+        }
+        if (!showNumber.equals("")) {
             if (showNumber.length() == 1) {
-                showNumber = "0";
+                showNumber = "";
                 if (txAHistoryStr.length() == 1) {
                     txAHistoryStr = "";
                 } else {
                     txAHistoryStr = txAHistoryStr.substring(0, (txAHistoryStr.length() - 1));
                 }
                 TxfLive.setText(txAHistoryStr);
-                TxfScreen.setText(showNumber);
+                TxfScreen.setText("0");
 
 
             } else {
-                if (!operation.equals(OperationType.NONE)) {
-                    showNumber = showNumber.substring(0, (showNumber.length() - 1));
-                    txAHistoryStr = txAHistoryStr.substring(0, (txAHistoryStr.length() - 1));
-                    TxfLive.setText(txAHistoryStr);
-                    TxfScreen.setText(showNumber);
-                }
+                showNumber = showNumber.substring(0, (showNumber.length() - 1));
+                txAHistoryStr = txAHistoryStr.substring(0, (txAHistoryStr.length() - 1));
+                TxfLive.setText(txAHistoryStr);
+                TxfScreen.setText(showNumber);
             }
         }
     }//GEN-LAST:event_jButtonBackActionPerformed
@@ -831,12 +872,13 @@ public class BasicCalculator extends javax.swing.JFrame {
     private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
         // TODO add your handling code here:
 
-        showNumber = "0";
+        showNumber = "";
         txAHistoryStr = "";
-        operation = OperationType.NONE;
+        operateOne = Double.MAX_VALUE;
         operateTwo = Double.MAX_VALUE;
         TxfLive.setText("");
         TxfScreen.setText("0");
+        operation = OperationType.NONE;
         subOperation = OperationType.NONE;
     }//GEN-LAST:event_jButtonClearActionPerformed
 
@@ -873,50 +915,67 @@ public class BasicCalculator extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonClearHistoryActionPerformed
 
     private void RequestOperation(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestOperation
-        // TODO add your handling code here:
-        
-        if (evt.getActionCommand().matches("-") && (showNumber.equals("") || showNumber.equals("0"))) {
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        //La tecla - permite establecer un valor que será negativo
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        if (evt.getActionCommand().matches("-") && showNumber.equals("") && ((operation.equals(OperationType.NONE) && operateOne != result) || (!operation.equals(OperationType.NONE)))) {
             showNumber = "-";
             txAHistoryStr = txAHistoryStr + (evt.getActionCommand());
             TxfLive.setText(txAHistoryStr);
             TxfScreen.setText(showNumber);
         } else {
-            subOperation = OperationType.NONE;
-            showNumber = showNumber.replaceAll(",", ".");
-            if ((operation.equals(OperationType.NONE)) && (subOperation.equals(OperationType.BRACKETS))) {
+            if ((!showNumber.equals("") && !showNumber.equals("-") && !showNumber.equals("0,")) || (showNumber.equals("") && result != Double.MAX_VALUE)) {
+                subOperation = OperationType.NONE;
+                showNumber = showNumber.replaceAll(",", ".");
+                if ((!operation.equals(OperationType.NONE))) {
+                    operateTwo = Double.parseDouble(showNumber);
+                    txAHistoryStr = txAHistoryStr + (evt.getActionCommand());
+                    result = BasicOperations.makeOperation(operation, operateOne, operateTwo, decimalCounter);
+                    if (result % 1.0 == 0) {
+                        showNumber = Integer.toString(((int) (result)));
 
-                operateTwo = Double.parseDouble(showNumber);
-                txAHistoryStr = txAHistoryStr + (evt.getActionCommand());
-                showNumber = "";
-                result = BasicOperations.makeOperation(operation, operateOne, operateTwo, decimalCounter);
-                if (result % 1.0 == 0) {
-                    TxfScreen.setText(Integer.toString(((int) (result))));
+                    } else {
+                        showNumber = Double.toString((result));
+                    }
+                    TxfScreen.setText(showNumber);
+                    showNumber = "";
+                    TxfLive.setText(txAHistoryStr);
+                    operateOne = result;
                 } else {
-                    TxfScreen.setText(Double.toString((result)));
+                    if (showNumber.equals("") && result != Double.MAX_VALUE) {
+                        operateOne = result;
+                        if (result % 1.0 == 0) {
+                            showNumber = Integer.toString(((int) (result)));
+                        } else {
+                            showNumber = Double.toString((result));
+                        }
+                    } else {
+                        operateOne = Double.parseDouble(showNumber);
+                    }
+                    if (txAHistoryStr.equals("")) {
+                        txAHistoryStr = showNumber;
+                    }
+                    showNumber = showNumber.replaceAll(".", ",");
+                    txAHistoryStr = txAHistoryStr + (evt.getActionCommand());
+                    showNumber = "";
+                    TxfLive.setText(txAHistoryStr);
+                    operateTwo = Double.MIN_VALUE;
                 }
-
-                TxfLive.setText(txAHistoryStr);
-                operateOne = result;
-            } else {
-                operateOne = Double.parseDouble(showNumber);
-                if (txAHistoryStr.equals("")){txAHistoryStr=showNumber;}
-                txAHistoryStr = txAHistoryStr + (evt.getActionCommand());
-                showNumber = "";
-                TxfLive.setText(txAHistoryStr);
-                operateTwo = Double.MIN_VALUE;
-            }
-            switch (evt.getActionCommand()) {
-                case "*":
-                    operation = OperationType.MULTIPLY;
-                    break;
-                case "+":
-                    operation = OperationType.ADD;
-                    break;
-                case "-":
-                    operation = OperationType.LESS;
-                    break;
-                default:
-                    operation = OperationType.NONE;
+                switch (evt.getActionCommand()) {
+                    case "*":
+                        operation = OperationType.MULTIPLY;
+                        break;
+                    case "+":
+                        operation = OperationType.ADD;
+                        break;
+                    case "-":
+                        operation = OperationType.LESS;
+                        break;
+                    default:
+                        operation = OperationType.NONE;
+                }
             }
         }
     }//GEN-LAST:event_RequestOperation
@@ -934,11 +993,10 @@ public class BasicCalculator extends javax.swing.JFrame {
 
     private void reciproc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reciproc
         // TODO add your handling code here:
-        if (!showNumber.equals("0") && !showNumber.equals("")) {
-
+        if (!showNumber.equals("")) {
             showNumber = showNumber.replaceAll(",", ".");
             result = Double.parseDouble(showNumber);
-            jButtonBackActionPerformed(evt);
+            jButtonClearEndActionPerformed(evt);
             txAHistoryStr = txAHistoryStr + ("Reciproc{" + result + "}");
             TxfLive.setText(txAHistoryStr);
             result = 1 / result;
@@ -965,7 +1023,21 @@ public class BasicCalculator extends javax.swing.JFrame {
 
     private void jButtonChangeSignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeSignActionPerformed
         // TODO add your handling code here:
-        if (!showNumber.equals("0") && !showNumber.equals("")) {
+        if (showNumber.equals("") && result != Double.MAX_VALUE) {
+            if (result % 1.0 == 0) {
+                showNumber = Integer.toString(((int) (result)));
+            } else {
+                showNumber = Double.toString((result));
+            }
+            if (showNumber.charAt(0) == '-') {
+                showNumber = showNumber.substring(1, showNumber.length());
+            } else {
+                showNumber = "-" + showNumber;
+            }
+            txAHistoryStr = showNumber;
+            TxfLive.setText(txAHistoryStr);
+            TxfScreen.setText(showNumber);
+        } else if (!showNumber.equals("")) {
             if (showNumber.charAt(0) == '-') {
                 int aux = showNumber.length();
                 txAHistoryStr = txAHistoryStr.substring(0, (txAHistoryStr.length() - aux));
