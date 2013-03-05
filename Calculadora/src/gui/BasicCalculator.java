@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -26,7 +27,7 @@ public class BasicCalculator extends javax.swing.JFrame {
     //ATRIBUTOS
     //////////////////////////////////////////////////
     //////////////////////////////////////////////////
-
+    private int keyID;
     private int decimalCounter = 8;
     private String showNumber = "";
     private String txAHistoryStr = "";
@@ -198,6 +199,11 @@ public class BasicCalculator extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(new java.awt.Color(153, 51, 255));
         setResizable(false);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         jButtonTwo.setBackground(new java.awt.Color(108, 81, 136));
         jButtonTwo.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -207,6 +213,11 @@ public class BasicCalculator extends javax.swing.JFrame {
         jButtonTwo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numberClick(evt);
+            }
+        });
+        jButtonTwo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
             }
         });
 
@@ -220,6 +231,11 @@ public class BasicCalculator extends javax.swing.JFrame {
                 numberClick(evt);
             }
         });
+        jButtonOne.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         jButtonComma.setBackground(new java.awt.Color(204, 204, 255));
         jButtonComma.setForeground(new java.awt.Color(90, 48, 115));
@@ -228,6 +244,11 @@ public class BasicCalculator extends javax.swing.JFrame {
         jButtonComma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCommaActionPerformed(evt);
+            }
+        });
+        jButtonComma.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
             }
         });
 
@@ -241,6 +262,11 @@ public class BasicCalculator extends javax.swing.JFrame {
                 numberClick(evt);
             }
         });
+        jButtonZero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         jButtonSix.setBackground(new java.awt.Color(108, 81, 136));
         jButtonSix.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -250,6 +276,11 @@ public class BasicCalculator extends javax.swing.JFrame {
         jButtonSix.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numberClick(evt);
+            }
+        });
+        jButtonSix.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
             }
         });
 
@@ -263,6 +294,11 @@ public class BasicCalculator extends javax.swing.JFrame {
                 numberClick(evt);
             }
         });
+        jButtonFour.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         jButtonFive.setBackground(new java.awt.Color(108, 81, 136));
         jButtonFive.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -272,6 +308,11 @@ public class BasicCalculator extends javax.swing.JFrame {
         jButtonFive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numberClick(evt);
+            }
+        });
+        jButtonFive.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
             }
         });
 
@@ -285,6 +326,11 @@ public class BasicCalculator extends javax.swing.JFrame {
                 numberClick(evt);
             }
         });
+        jButtonNine.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         jButtonSeven.setBackground(new java.awt.Color(108, 81, 136));
         jButtonSeven.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -294,6 +340,11 @@ public class BasicCalculator extends javax.swing.JFrame {
         jButtonSeven.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numberClick(evt);
+            }
+        });
+        jButtonSeven.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
             }
         });
 
@@ -307,6 +358,11 @@ public class BasicCalculator extends javax.swing.JFrame {
                 numberClick(evt);
             }
         });
+        jButtonEight.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         jButtonTrhee.setBackground(new java.awt.Color(108, 81, 136));
         jButtonTrhee.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -316,6 +372,11 @@ public class BasicCalculator extends javax.swing.JFrame {
         jButtonTrhee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numberClick(evt);
+            }
+        });
+        jButtonTrhee.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
             }
         });
 
@@ -329,6 +390,11 @@ public class BasicCalculator extends javax.swing.JFrame {
                 RequestOperation(evt);
             }
         });
+        jButtonPlus.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         jButtonDivide.setBackground(new java.awt.Color(204, 204, 255));
         jButtonDivide.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
@@ -338,6 +404,11 @@ public class BasicCalculator extends javax.swing.JFrame {
         jButtonDivide.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RequestOperation(evt);
+            }
+        });
+        jButtonDivide.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
             }
         });
 
@@ -351,6 +422,11 @@ public class BasicCalculator extends javax.swing.JFrame {
                 RequestOperation(evt);
             }
         });
+        jButtonMultiply.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         jButtonLess.setBackground(new java.awt.Color(204, 204, 255));
         jButtonLess.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
@@ -360,6 +436,11 @@ public class BasicCalculator extends javax.swing.JFrame {
         jButtonLess.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RequestOperation(evt);
+            }
+        });
+        jButtonLess.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
             }
         });
 
@@ -373,6 +454,11 @@ public class BasicCalculator extends javax.swing.JFrame {
                 reciproc(evt);
             }
         });
+        jButton17.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         jButtonEquals.setBackground(new java.awt.Color(204, 204, 255));
         jButtonEquals.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -384,6 +470,11 @@ public class BasicCalculator extends javax.swing.JFrame {
                 jButtonEqualsActionPerformed(evt);
             }
         });
+        jButtonEquals.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         jButtonClearEnd.setBackground(new java.awt.Color(204, 204, 255));
         jButtonClearEnd.setForeground(new java.awt.Color(90, 48, 115));
@@ -392,6 +483,11 @@ public class BasicCalculator extends javax.swing.JFrame {
         jButtonClearEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonClearEndActionPerformed(evt);
+            }
+        });
+        jButtonClearEnd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
             }
         });
 
@@ -405,6 +501,11 @@ public class BasicCalculator extends javax.swing.JFrame {
                 jButtonBackActionPerformed(evt);
             }
         });
+        jButtonBack.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         jButtonClear.setBackground(new java.awt.Color(204, 204, 255));
         jButtonClear.setForeground(new java.awt.Color(90, 48, 115));
@@ -413,6 +514,11 @@ public class BasicCalculator extends javax.swing.JFrame {
         jButtonClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonClearActionPerformed(evt);
+            }
+        });
+        jButtonClear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
             }
         });
 
@@ -425,6 +531,17 @@ public class BasicCalculator extends javax.swing.JFrame {
         TxfLive.setFocusTraversalKeysEnabled(false);
         TxfLive.setFocusable(false);
         TxfLive.setSelectionColor(new java.awt.Color(102, 0, 153));
+        TxfLive.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
+
+        jScrollPane1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         TxAHistory.setEditable(false);
         TxAHistory.setBackground(new java.awt.Color(108, 81, 136));
@@ -444,6 +561,11 @@ public class BasicCalculator extends javax.swing.JFrame {
         TxfScreen.setText("0");
         TxfScreen.setFocusTraversalKeysEnabled(false);
         TxfScreen.setFocusable(false);
+        TxfScreen.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         jButtonCloseBracket.setText(")");
         jButtonCloseBracket.setToolTipText("");
@@ -454,6 +576,11 @@ public class BasicCalculator extends javax.swing.JFrame {
                 jButtonCloseBracketActionPerformed(evt);
             }
         });
+        jButtonCloseBracket.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         jButtonOpenBracket.setText("(");
         jButtonOpenBracket.setToolTipText("");
@@ -462,6 +589,11 @@ public class BasicCalculator extends javax.swing.JFrame {
         jButtonOpenBracket.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonOpenBracketActionPerformed(evt);
+            }
+        });
+        jButtonOpenBracket.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
             }
         });
 
@@ -476,6 +608,11 @@ public class BasicCalculator extends javax.swing.JFrame {
                 jButtonClearHistoryActionPerformed(evt);
             }
         });
+        jButtonClearHistory.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         jToggleLiveMode.setBackground(new java.awt.Color(204, 204, 255));
         jToggleLiveMode.setForeground(new java.awt.Color(90, 48, 115));
@@ -488,6 +625,11 @@ public class BasicCalculator extends javax.swing.JFrame {
                 jToggleLiveModeActionPerformed(evt);
             }
         });
+        jToggleLiveMode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
+            }
+        });
 
         jButtonChangeSign.setBackground(new java.awt.Color(204, 204, 255));
         jButtonChangeSign.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -497,6 +639,11 @@ public class BasicCalculator extends javax.swing.JFrame {
         jButtonChangeSign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonChangeSignActionPerformed(evt);
+            }
+        });
+        jButtonChangeSign.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BasicCalculator.this.keyPressed(evt);
             }
         });
 
@@ -1045,6 +1192,7 @@ public class BasicCalculator extends javax.swing.JFrame {
     private void showAboutDialog(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showAboutDialog
         // TODO add your handling code here:
         aboutDialog.setVisible(true);
+        jButtonTwo.doClick();
     }//GEN-LAST:event_showAboutDialog
 
     private void jButtonChangeSignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeSignActionPerformed
@@ -1113,6 +1261,64 @@ public class BasicCalculator extends javax.swing.JFrame {
         } catch (Exception s) {
         }
     }//GEN-LAST:event_jMenuPaste
+
+    private void keyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_keyPressed
+        // TODO add your handling code here:
+        keyID = evt.getKeyChar();
+        System.out.println(keyID);
+   if (keyID == 97 || keyID == 49){
+     // 1
+     jButtonOne.doClick();
+   } else if (keyID == 98 || keyID == 50){
+     // 2
+     jButtonTwo.doClick();
+   } else if (keyID == 99 || keyID == 51){
+     // 3
+     jButtonTrhee.doClick();
+   } else if (keyID == 100 || keyID == 52){
+     // 4
+     jButtonFour.doClick();
+   } else if (keyID == 101 || keyID == 53){
+     // 5
+     jButtonFive.doClick();
+   } else if (keyID == 102 || keyID == 54){
+     // 6
+     jButtonSix.doClick();
+   } else if (keyID == 103 || keyID == 55){
+     // 7
+     jButtonSeven.doClick();
+   } else if (keyID == 104 || keyID == 56){
+     // 8 
+     jButtonEight.doClick();
+   } else if (keyID == 105 || keyID == 57){
+     // 9
+     jButtonNine.doClick();
+   } else if (keyID == 110 || keyID == 46){
+     // .
+     jButtonComma.doClick();
+   } else if (keyID == 10){
+     // =
+     jButtonEquals.doClick();
+   } else if (keyID == 107 || keyID == 43){
+     // +
+     jButtonPlus.doClick();
+   } else if (keyID == 109 || keyID == 45){
+     // -
+     jButtonLess.doClick();
+   } else if (keyID == 106 || keyID == 42){
+     // *
+     jButtonMultiply.doClick();
+   } else if (keyID == 111 || keyID == 47){
+     // /
+     jButtonDivide.doClick();
+   } else if (keyID == 67 || keyID == 99){
+     // C
+     jButtonClear.doClick();
+   } else if (keyID == 48){
+     // 0 
+     jButtonZero.doClick();
+   }
+    }//GEN-LAST:event_keyPressed
 
     /**
      * @param args the command line arguments
