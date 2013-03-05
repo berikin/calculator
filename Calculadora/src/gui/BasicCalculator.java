@@ -8,10 +8,12 @@ import operations.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JTextField;
 import javax.swing.text.BadLocationException;
 
 /**
@@ -102,9 +104,10 @@ public class BasicCalculator extends javax.swing.JFrame {
         jToggleLiveMode = new javax.swing.JToggleButton();
         jButtonChangeSign = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuEdit = new javax.swing.JMenu();
+        jMenuCopy = new javax.swing.JMenuItem();
+        jMenuPaste = new javax.swing.JMenuItem();
+        jMenuPrecision = new javax.swing.JMenu();
         jRadioButtonNoDecimals = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonOneDecimal = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonTwoDecimals = new javax.swing.JRadioButtonMenuItem();
@@ -114,6 +117,8 @@ public class BasicCalculator extends javax.swing.JFrame {
         jRadioButtonSixDecimals = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonSevenDecimals = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonEightDecimals = new javax.swing.JRadioButtonMenuItem();
+        jMenuCalculator = new javax.swing.JMenu();
+        jMenuAbout = new javax.swing.JMenuItem();
 
         aboutDialog.setTitle("Acerca de");
         aboutDialog.setAlwaysOnTop(true);
@@ -497,21 +502,30 @@ public class BasicCalculator extends javax.swing.JFrame {
 
         jMenuBar1.setForeground(new java.awt.Color(88, 65, 115));
 
-        jMenu1.setForeground(new java.awt.Color(88, 65, 115));
-        jMenu1.setText("Calculadora");
+        jMenuEdit.setText("Edición");
 
-        jMenuItem1.setText("Acerca de");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuCopy.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.META_MASK));
+        jMenuCopy.setText("Copiar");
+        jMenuCopy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showAboutDialog(evt);
+                jMenuCopy(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenuEdit.add(jMenuCopy);
 
-        jMenuBar1.add(jMenu1);
+        jMenuPaste.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.META_MASK));
+        jMenuPaste.setText("Pegar");
+        jMenuPaste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuPaste(evt);
+            }
+        });
+        jMenuEdit.add(jMenuPaste);
 
-        jMenu2.setForeground(new java.awt.Color(88, 65, 115));
-        jMenu2.setText("Precisión");
+        jMenuBar1.add(jMenuEdit);
+
+        jMenuPrecision.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuPrecision.setText("Precisión");
 
         jRadioButtonNoDecimals.setText("Sin decimales");
         jRadioButtonNoDecimals.setActionCommand("0");
@@ -520,7 +534,7 @@ public class BasicCalculator extends javax.swing.JFrame {
                 selectDecimalPrecision(evt);
             }
         });
-        jMenu2.add(jRadioButtonNoDecimals);
+        jMenuPrecision.add(jRadioButtonNoDecimals);
 
         jRadioButtonOneDecimal.setText("1 decimal");
         jRadioButtonOneDecimal.setActionCommand("1");
@@ -529,7 +543,7 @@ public class BasicCalculator extends javax.swing.JFrame {
                 selectDecimalPrecision(evt);
             }
         });
-        jMenu2.add(jRadioButtonOneDecimal);
+        jMenuPrecision.add(jRadioButtonOneDecimal);
 
         jRadioButtonTwoDecimals.setText("2 decimales");
         jRadioButtonTwoDecimals.setActionCommand("2");
@@ -538,7 +552,7 @@ public class BasicCalculator extends javax.swing.JFrame {
                 selectDecimalPrecision(evt);
             }
         });
-        jMenu2.add(jRadioButtonTwoDecimals);
+        jMenuPrecision.add(jRadioButtonTwoDecimals);
 
         jRadioButtonThreeDecimals.setText("3 decimales");
         jRadioButtonThreeDecimals.setActionCommand("3");
@@ -547,23 +561,23 @@ public class BasicCalculator extends javax.swing.JFrame {
                 selectDecimalPrecision(evt);
             }
         });
-        jMenu2.add(jRadioButtonThreeDecimals);
+        jMenuPrecision.add(jRadioButtonThreeDecimals);
 
         jRadioButtonFourDecimals.setText("4 decimales");
         jRadioButtonFourDecimals.setActionCommand("4");
-        jMenu2.add(jRadioButtonFourDecimals);
+        jMenuPrecision.add(jRadioButtonFourDecimals);
 
         jRadioButtonFiveDecimals.setText("5 decimales");
         jRadioButtonFiveDecimals.setActionCommand("5");
-        jMenu2.add(jRadioButtonFiveDecimals);
+        jMenuPrecision.add(jRadioButtonFiveDecimals);
 
         jRadioButtonSixDecimals.setText("6 decimales");
         jRadioButtonSixDecimals.setActionCommand("6");
-        jMenu2.add(jRadioButtonSixDecimals);
+        jMenuPrecision.add(jRadioButtonSixDecimals);
 
         jRadioButtonSevenDecimals.setText("7 decimales");
         jRadioButtonSevenDecimals.setActionCommand("7");
-        jMenu2.add(jRadioButtonSevenDecimals);
+        jMenuPrecision.add(jRadioButtonSevenDecimals);
 
         jRadioButtonEightDecimals.setSelected(true);
         jRadioButtonEightDecimals.setText("8 decimales");
@@ -573,9 +587,22 @@ public class BasicCalculator extends javax.swing.JFrame {
                 selectDecimalPrecision(evt);
             }
         });
-        jMenu2.add(jRadioButtonEightDecimals);
+        jMenuPrecision.add(jRadioButtonEightDecimals);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenuPrecision);
+
+        jMenuCalculator.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuCalculator.setText("Calculadora");
+
+        jMenuAbout.setText("Acerca de");
+        jMenuAbout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showAboutDialog(evt);
+            }
+        });
+        jMenuCalculator.add(jMenuAbout);
+
+        jMenuBar1.add(jMenuCalculator);
 
         setJMenuBar(jMenuBar1);
 
@@ -718,7 +745,6 @@ public class BasicCalculator extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void numberClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberClick
@@ -1056,6 +1082,38 @@ public class BasicCalculator extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonChangeSignActionPerformed
 
+    private void jMenuCopy(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCopy
+        // TODO add your handling code here:
+
+        TxfScreen.selectAll();
+        TxfScreen.copy();
+        TxfScreen.select(0, 0);
+    }//GEN-LAST:event_jMenuCopy
+
+    private void jMenuPaste(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPaste
+        // TODO add your handling code here:
+        try {
+            int aux_show=showNumber.length(); 
+            JTextField TxfPaste = new JTextField();
+            TxfPaste.paste();
+            String aux = TxfPaste.getText();
+            System.out.println(aux);
+            showNumber = showNumber.replace(",", ".");
+            double aux_num = Double.parseDouble(aux);
+            if (aux_num % 1.0 == 0) {
+                showNumber = Integer.toString(((int) (aux_num)));
+            } else {
+                showNumber = Double.toString((aux_num));
+            }
+            showNumber = showNumber.replace(".", ",");
+            TxfScreen.setText(showNumber);
+            txAHistoryStr = txAHistoryStr.substring(0,(txAHistoryStr.length()-aux_show));
+            txAHistoryStr=txAHistoryStr+showNumber;
+            TxfLive.setText(txAHistoryStr);
+        } catch (Exception s) {
+        }
+    }//GEN-LAST:event_jMenuPaste
+
     /**
      * @param args the command line arguments
      */
@@ -1121,10 +1179,13 @@ public class BasicCalculator extends javax.swing.JFrame {
     private javax.swing.JButton jButtonZero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem jMenuAbout;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenu jMenuCalculator;
+    private javax.swing.JMenuItem jMenuCopy;
+    private javax.swing.JMenu jMenuEdit;
+    private javax.swing.JMenuItem jMenuPaste;
+    private javax.swing.JMenu jMenuPrecision;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonEightDecimals;
     private javax.swing.JRadioButtonMenuItem jRadioButtonFiveDecimals;
