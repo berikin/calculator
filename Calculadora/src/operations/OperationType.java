@@ -10,14 +10,6 @@ package operations;
  */
 public enum OperationType {
 
-    NONE(0), ADD(1), LESS(1), MULTIPLY(2), DIVIDE(2), BRACKETS(3), RECIPROC(0);
-    private int priority;
+    NONE, ADD, LESS, MULTIPLY, DIVIDE, RECIPROC, SQRT, PERCENT;
 
-    OperationType(int priority) {
-        this.priority = priority;
-    }
-
-    public int getPriority() {
-        return priority;
-    }
 }

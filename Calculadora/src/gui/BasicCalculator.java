@@ -99,7 +99,7 @@ public class BasicCalculator extends javax.swing.JFrame {
         jButtonDivide = new javax.swing.JButton();
         jButtonMultiply = new javax.swing.JButton();
         jButtonLess = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
+        jButtonReciproc = new javax.swing.JButton();
         jButtonEquals = new javax.swing.JButton();
         jButtonClearEnd = new javax.swing.JButton();
         jButtonBack = new javax.swing.JButton();
@@ -108,10 +108,7 @@ public class BasicCalculator extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TxAHistory = new javax.swing.JTextArea();
         TxfScreen = new javax.swing.JTextField();
-        jButtonCloseBracket = new javax.swing.JButton();
-        jButtonOpenBracket = new javax.swing.JButton();
         jButtonClearHistory = new javax.swing.JButton();
-        jToggleLiveMode = new javax.swing.JToggleButton();
         jButtonChangeSign = new javax.swing.JButton();
         jToggleConverters = new javax.swing.JToggleButton();
         jTabbedPaneConversors = new javax.swing.JTabbedPane();
@@ -134,8 +131,9 @@ public class BasicCalculator extends javax.swing.JFrame {
         jButtonMemoryLess = new javax.swing.JButton();
         jButtonMemoryAdd = new javax.swing.JButton();
         jButtonRecoverMemory = new javax.swing.JButton();
-        jButtonChangeSign6 = new javax.swing.JButton();
         TxfMemory = new javax.swing.JTextField();
+        jButtonSQRT = new javax.swing.JButton();
+        jButtonPercent = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuEdit = new javax.swing.JMenu();
         jMenuCopy = new javax.swing.JMenuItem();
@@ -371,7 +369,7 @@ public class BasicCalculator extends javax.swing.JFrame {
         });
 
         jButtonPlus.setBackground(new java.awt.Color(165, 151, 184));
-        jButtonPlus.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jButtonPlus.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jButtonPlus.setForeground(new java.awt.Color(90, 48, 115));
         jButtonPlus.setText("+");
         jButtonPlus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -383,7 +381,7 @@ public class BasicCalculator extends javax.swing.JFrame {
         });
 
         jButtonDivide.setBackground(new java.awt.Color(165, 151, 184));
-        jButtonDivide.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jButtonDivide.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jButtonDivide.setForeground(new java.awt.Color(90, 48, 115));
         jButtonDivide.setText("/");
         jButtonDivide.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -395,7 +393,7 @@ public class BasicCalculator extends javax.swing.JFrame {
         });
 
         jButtonMultiply.setBackground(new java.awt.Color(165, 151, 184));
-        jButtonMultiply.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jButtonMultiply.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jButtonMultiply.setForeground(new java.awt.Color(90, 48, 115));
         jButtonMultiply.setText("*");
         jButtonMultiply.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -407,7 +405,7 @@ public class BasicCalculator extends javax.swing.JFrame {
         });
 
         jButtonLess.setBackground(new java.awt.Color(165, 151, 184));
-        jButtonLess.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jButtonLess.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jButtonLess.setForeground(new java.awt.Color(90, 48, 115));
         jButtonLess.setText("-");
         jButtonLess.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -418,14 +416,14 @@ public class BasicCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButton17.setBackground(new java.awt.Color(165, 151, 184));
-        jButton17.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
-        jButton17.setForeground(new java.awt.Color(90, 48, 115));
-        jButton17.setText("1/x");
-        jButton17.setToolTipText("Recíproco");
-        jButton17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton17.setFocusable(false);
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        jButtonReciproc.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonReciproc.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+        jButtonReciproc.setForeground(new java.awt.Color(90, 48, 115));
+        jButtonReciproc.setText("1/x");
+        jButtonReciproc.setToolTipText("Recíproco");
+        jButtonReciproc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonReciproc.setFocusable(false);
+        jButtonReciproc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reciproc(evt);
             }
@@ -443,7 +441,7 @@ public class BasicCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonClearEnd.setBackground(new java.awt.Color(225, 204, 255));
+        jButtonClearEnd.setBackground(new java.awt.Color(165, 151, 184));
         jButtonClearEnd.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
         jButtonClearEnd.setForeground(new java.awt.Color(90, 48, 115));
         jButtonClearEnd.setText("CE");
@@ -455,7 +453,7 @@ public class BasicCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonBack.setBackground(new java.awt.Color(225, 204, 255));
+        jButtonBack.setBackground(new java.awt.Color(165, 151, 184));
         jButtonBack.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
         jButtonBack.setForeground(new java.awt.Color(90, 48, 115));
         jButtonBack.setText("←");
@@ -468,7 +466,7 @@ public class BasicCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonClear.setBackground(new java.awt.Color(225, 204, 255));
+        jButtonClear.setBackground(new java.awt.Color(165, 151, 184));
         jButtonClear.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
         jButtonClear.setForeground(new java.awt.Color(90, 48, 115));
         jButtonClear.setText("C");
@@ -505,35 +503,13 @@ public class BasicCalculator extends javax.swing.JFrame {
         jScrollPane1.setViewportView(TxAHistory);
 
         TxfScreen.setEditable(false);
-        TxfScreen.setBackground(new java.awt.Color(225, 204, 255));
+        TxfScreen.setBackground(new java.awt.Color(165, 151, 184));
         TxfScreen.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfScreen.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfScreen.setText("0");
         TxfScreen.setToolTipText("Interfaz de operaciones");
         TxfScreen.setFocusTraversalKeysEnabled(false);
         TxfScreen.setFocusable(false);
-
-        jButtonCloseBracket.setText(")");
-        jButtonCloseBracket.setToolTipText("");
-        jButtonCloseBracket.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonCloseBracket.setEnabled(false);
-        jButtonCloseBracket.setFocusable(false);
-        jButtonCloseBracket.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCloseBracketActionPerformed(evt);
-            }
-        });
-
-        jButtonOpenBracket.setText("(");
-        jButtonOpenBracket.setToolTipText("");
-        jButtonOpenBracket.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonOpenBracket.setEnabled(false);
-        jButtonOpenBracket.setFocusable(false);
-        jButtonOpenBracket.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonOpenBracketActionPerformed(evt);
-            }
-        });
 
         jButtonClearHistory.setBackground(new java.awt.Color(108, 81, 136));
         jButtonClearHistory.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -545,20 +521,6 @@ public class BasicCalculator extends javax.swing.JFrame {
         jButtonClearHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonClearHistoryActionPerformed(evt);
-            }
-        });
-
-        jToggleLiveMode.setBackground(new java.awt.Color(225, 204, 255));
-        jToggleLiveMode.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
-        jToggleLiveMode.setForeground(new java.awt.Color(90, 48, 115));
-        jToggleLiveMode.setText("Álgebra avanzada");
-        jToggleLiveMode.setToolTipText("El cálculo combinado espera a que se presione el botón de resultado para evaluar una operación compleja combinando varias operaciones simples");
-        jToggleLiveMode.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jToggleLiveMode.setFocusable(false);
-        jToggleLiveMode.setPreferredSize(new java.awt.Dimension(177, 29));
-        jToggleLiveMode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleLiveModeActionPerformed(evt);
             }
         });
 
@@ -574,7 +536,7 @@ public class BasicCalculator extends javax.swing.JFrame {
             }
         });
 
-        jToggleConverters.setBackground(new java.awt.Color(225, 204, 255));
+        jToggleConverters.setBackground(new java.awt.Color(165, 151, 184));
         jToggleConverters.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
         jToggleConverters.setForeground(new java.awt.Color(90, 48, 115));
         jToggleConverters.setText("Conversores");
@@ -588,6 +550,7 @@ public class BasicCalculator extends javax.swing.JFrame {
         });
 
         jTabbedPaneConversors.setBackground(new java.awt.Color(204, 204, 255));
+        jTabbedPaneConversors.setEnabled(false);
         jTabbedPaneConversors.setFocusable(false);
         jTabbedPaneConversors.setRequestFocusEnabled(false);
         jTabbedPaneConversors.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -596,12 +559,12 @@ public class BasicCalculator extends javax.swing.JFrame {
             }
         });
 
-        jPanelDegrees.setBackground(new java.awt.Color(225, 204, 255));
+        jPanelDegrees.setBackground(new java.awt.Color(165, 151, 184));
         jPanelDegrees.setFocusable(false);
         jPanelDegrees.setName("Degrees");
 
         TxfCDegrees.setEditable(false);
-        TxfCDegrees.setBackground(new java.awt.Color(225, 204, 255));
+        TxfCDegrees.setBackground(new java.awt.Color(165, 151, 184));
         TxfCDegrees.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfCDegrees.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfCDegrees.setText("0");
@@ -615,7 +578,7 @@ public class BasicCalculator extends javax.swing.JFrame {
         });
 
         TxfFDegrees.setEditable(false);
-        TxfFDegrees.setBackground(new java.awt.Color(225, 204, 255));
+        TxfFDegrees.setBackground(new java.awt.Color(165, 151, 184));
         TxfFDegrees.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfFDegrees.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfFDegrees.setText("32");
@@ -634,7 +597,7 @@ public class BasicCalculator extends javax.swing.JFrame {
         });
 
         TxfKDegrees.setEditable(false);
-        TxfKDegrees.setBackground(new java.awt.Color(225, 204, 255));
+        TxfKDegrees.setBackground(new java.awt.Color(165, 151, 184));
         TxfKDegrees.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfKDegrees.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfKDegrees.setText("273,15");
@@ -698,12 +661,12 @@ public class BasicCalculator extends javax.swing.JFrame {
 
         jTabbedPaneConversors.addTab("Grados", jPanelDegrees);
 
-        jPanelDistances.setBackground(new java.awt.Color(225, 204, 255));
+        jPanelDistances.setBackground(new java.awt.Color(165, 151, 184));
         jPanelDistances.setFocusable(false);
         jPanelDistances.setName("Distances");
 
         TxfKMH.setEditable(false);
-        TxfKMH.setBackground(new java.awt.Color(225, 204, 255));
+        TxfKMH.setBackground(new java.awt.Color(165, 151, 184));
         TxfKMH.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfKMH.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfKMH.setText("0");
@@ -717,7 +680,7 @@ public class BasicCalculator extends javax.swing.JFrame {
         });
 
         TxfMPH.setEditable(false);
-        TxfMPH.setBackground(new java.awt.Color(225, 204, 255));
+        TxfMPH.setBackground(new java.awt.Color(165, 151, 184));
         TxfMPH.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfMPH.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfMPH.setText("0");
@@ -731,7 +694,7 @@ public class BasicCalculator extends javax.swing.JFrame {
         });
 
         TxfKnot.setEditable(false);
-        TxfKnot.setBackground(new java.awt.Color(225, 204, 255));
+        TxfKnot.setBackground(new java.awt.Color(165, 151, 184));
         TxfKnot.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfKnot.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfKnot.setText("0");
@@ -744,10 +707,13 @@ public class BasicCalculator extends javax.swing.JFrame {
             }
         });
 
+        jLabelKMH.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabelKMH.setText("Kilómetros por hora");
 
+        jLabelMPH.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabelMPH.setText("Millas por hora");
 
+        jLabelKN.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabelKN.setText("Nudos");
 
         org.jdesktop.layout.GroupLayout jPanelDistancesLayout = new org.jdesktop.layout.GroupLayout(jPanelDistances);
@@ -785,7 +751,7 @@ public class BasicCalculator extends javax.swing.JFrame {
 
         jTabbedPaneConversors.addTab("Distancias", jPanelDistances);
 
-        jButtonMemorySave.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonMemorySave.setBackground(new java.awt.Color(225, 204, 255));
         jButtonMemorySave.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jButtonMemorySave.setForeground(new java.awt.Color(90, 48, 115));
         jButtonMemorySave.setText("MS");
@@ -798,7 +764,7 @@ public class BasicCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonMemoryClear.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonMemoryClear.setBackground(new java.awt.Color(225, 204, 255));
         jButtonMemoryClear.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jButtonMemoryClear.setForeground(new java.awt.Color(90, 48, 115));
         jButtonMemoryClear.setText("MC");
@@ -811,7 +777,7 @@ public class BasicCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonMemoryLess.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonMemoryLess.setBackground(new java.awt.Color(225, 204, 255));
         jButtonMemoryLess.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jButtonMemoryLess.setForeground(new java.awt.Color(90, 48, 115));
         jButtonMemoryLess.setText("M-");
@@ -825,7 +791,7 @@ public class BasicCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonMemoryAdd.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonMemoryAdd.setBackground(new java.awt.Color(225, 204, 255));
         jButtonMemoryAdd.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jButtonMemoryAdd.setForeground(new java.awt.Color(90, 48, 115));
         jButtonMemoryAdd.setText("M+");
@@ -839,7 +805,7 @@ public class BasicCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonRecoverMemory.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonRecoverMemory.setBackground(new java.awt.Color(225, 204, 255));
         jButtonRecoverMemory.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jButtonRecoverMemory.setForeground(new java.awt.Color(90, 48, 115));
         jButtonRecoverMemory.setText("MR");
@@ -852,32 +818,45 @@ public class BasicCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonChangeSign6.setBackground(new java.awt.Color(165, 151, 184));
-        jButtonChangeSign6.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonChangeSign6.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonChangeSign6.setText("%");
-        jButtonChangeSign6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonChangeSign6.setFocusable(false);
-        jButtonChangeSign6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonChangeSign6ActionPerformed(evt);
-            }
-        });
-
         TxfMemory.setEditable(false);
-        TxfMemory.setBackground(new java.awt.Color(225, 204, 255));
+        TxfMemory.setBackground(new java.awt.Color(165, 151, 184));
         TxfMemory.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfMemory.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfMemory.setToolTipText("Memoria");
         TxfMemory.setFocusTraversalKeysEnabled(false);
         TxfMemory.setFocusable(false);
 
+        jButtonSQRT.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonSQRT.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jButtonSQRT.setForeground(new java.awt.Color(90, 48, 115));
+        jButtonSQRT.setText("√");
+        jButtonSQRT.setToolTipText("");
+        jButtonSQRT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonSQRT.setFocusable(false);
+        jButtonSQRT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSQRTActionPerformed(evt);
+            }
+        });
+
+        jButtonPercent.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonPercent.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jButtonPercent.setForeground(new java.awt.Color(90, 48, 115));
+        jButtonPercent.setText("%");
+        jButtonPercent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonPercent.setFocusable(false);
+        jButtonPercent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RequestOperation(evt);
+            }
+        });
+
         jMenuBar1.setForeground(new java.awt.Color(88, 65, 115));
 
         jMenuEdit.setForeground(new java.awt.Color(88, 65, 115));
         jMenuEdit.setText("Edición");
 
-        jMenuCopy.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.META_MASK));
+        jMenuCopy.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         jMenuCopy.setText("Copiar");
         jMenuCopy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -886,7 +865,7 @@ public class BasicCalculator extends javax.swing.JFrame {
         });
         jMenuEdit.add(jMenuCopy);
 
-        jMenuPaste.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.META_MASK));
+        jMenuPaste.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
         jMenuPaste.setText("Pegar");
         jMenuPaste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -984,90 +963,88 @@ public class BasicCalculator extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(6, 6, 6)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(layout.createSequentialGroup()
-                        .add(6, 6, 6)
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(layout.createSequentialGroup()
-                                .add(jToggleConverters, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 117, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(18, 18, 18)
-                                .add(jButtonChangeSign6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(12, 12, 12)
-                                .add(jButtonSeven, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(jButtonEight, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(jButtonNine, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(18, 18, 18)
-                                .add(jButtonMultiply, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(jButtonDivide, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(layout.createSequentialGroup()
-                                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 438, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jButtonClearHistory, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(TxfScreen)
+                        .add(1, 1, 1)
+                        .add(jButtonSQRT, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(18, 18, 18)
+                        .add(jButtonChangeSign, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(12, 12, 12)
+                        .add(jButtonReciproc, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(18, 18, 18)
+                        .add(jButtonSeven, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(jButtonEight, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(jButtonNine, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(18, 18, 18)
+                        .add(jButtonMultiply, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(jButtonDivide, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(layout.createSequentialGroup()
+                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 438, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jButtonClearHistory, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(TxfScreen)
+                    .add(layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(layout.createSequentialGroup()
                                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(layout.createSequentialGroup()
-                                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                                             .add(layout.createSequentialGroup()
                                                 .add(jButtonMemoryClear, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                                 .add(18, 18, 18)
-                                                .add(jButtonMemorySave, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                .add(18, 18, 18)
-                                                .add(jButtonChangeSign, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                                .add(jButtonMemorySave, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                             .add(layout.createSequentialGroup()
                                                 .add(jButtonRecoverMemory, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                                 .add(18, 18, 18)
                                                 .add(jButtonMemoryAdd, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                                 .add(18, 18, 18)
-                                                .add(jButtonMemoryLess, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                            .add(jToggleLiveMode, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                                .add(jButtonMemoryLess, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                                         .add(0, 0, Short.MAX_VALUE))
                                     .add(org.jdesktop.layout.GroupLayout.TRAILING, TxfMemory))
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED))
+                            .add(layout.createSequentialGroup()
+                                .add(jToggleConverters, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .add(12, 12, 12)))
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(layout.createSequentialGroup()
+                                .add(jButtonBack, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 96, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                .add(jButtonClearEnd, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 89, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                .add(jButtonClear, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 90, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(layout.createSequentialGroup()
                                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(layout.createSequentialGroup()
-                                        .add(jButtonBack, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 96, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(jButtonFour, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                        .add(jButtonClearEnd, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 89, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(jButtonFive, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                        .add(jButtonClear, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 90, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                        .add(jButtonSix, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                                        .add(org.jdesktop.layout.GroupLayout.LEADING, jButtonZero, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
+                                            .add(jButtonOne, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                            .add(jButtonTwo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(12, 12, 12)
+                                            .add(jButtonTrhee, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                                .add(18, 18, 18)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(layout.createSequentialGroup()
-                                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                            .add(layout.createSequentialGroup()
-                                                .add(jButtonFour, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                                .add(jButtonFive, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                                .add(jButtonSix, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                                                .add(org.jdesktop.layout.GroupLayout.LEADING, jButtonZero, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
-                                                    .add(jButtonOne, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                                    .add(jButtonTwo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                    .add(12, 12, 12)
-                                                    .add(jButtonTrhee, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                                        .add(18, 18, 18)
-                                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                            .add(layout.createSequentialGroup()
-                                                .add(jButtonPlus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                                .add(jButtonLess, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                            .add(layout.createSequentialGroup()
-                                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                                    .add(jButtonComma, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jButton17, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                                .add(jButtonEquals, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))))
-                            .add(TxfLive)))
-                    .add(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .add(jButtonOpenBracket, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 85, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(18, 18, 18)
-                        .add(jButtonCloseBracket, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 85, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                        .add(jButtonPlus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                        .add(jButtonLess, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(layout.createSequentialGroup()
+                                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                                            .add(jButtonComma, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(jButtonPercent, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                        .add(jButtonEquals, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))))
+                    .add(TxfLive))
                 .add(18, 18, 18)
                 .add(jTabbedPaneConversors, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 196, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(11, Short.MAX_VALUE))
@@ -1090,7 +1067,7 @@ public class BasicCalculator extends javax.swing.JFrame {
                             .add(jButtonClearEnd, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jButtonClear, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jButtonBack, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jToggleLiveMode, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(jToggleConverters, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .add(9, 9, 9)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
@@ -1100,8 +1077,9 @@ public class BasicCalculator extends javax.swing.JFrame {
                                 .add(jButtonSeven, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(jButtonEight, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(jButtonNine, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(jToggleConverters, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(jButtonChangeSign6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                .add(jButtonChangeSign, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(jButtonSQRT, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(jButtonReciproc, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(layout.createSequentialGroup()
@@ -1111,8 +1089,7 @@ public class BasicCalculator extends javax.swing.JFrame {
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                                     .add(layout.createSequentialGroup()
-                                        .add(jButton17, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(54, 54, 54)
                                         .add(jButtonComma, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                     .add(jButtonEquals, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 102, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                             .add(layout.createSequentialGroup()
@@ -1122,28 +1099,25 @@ public class BasicCalculator extends javax.swing.JFrame {
                                     .add(jButtonSix, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(TxfMemory, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 46, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jButtonOne, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(jButtonTwo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(jButtonTrhee, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                                         .add(jButtonMemoryLess, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                         .add(jButtonMemoryAdd, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(jButtonRecoverMemory, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                        .add(jButtonRecoverMemory, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                                        .add(jButtonOne, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(jButtonTwo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(jButtonTrhee, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(jButtonPercent, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                                     .add(jButtonZero, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(jButtonChangeSign, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(jButtonMemorySave, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(jButtonMemoryClear, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
                     .add(layout.createSequentialGroup()
                         .add(2, 2, 2)
                         .add(jTabbedPaneConversors, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 470, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .add(18, 21, Short.MAX_VALUE)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jButtonCloseBracket, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jButtonOpenBracket, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1594,7 +1568,7 @@ public class BasicCalculator extends javax.swing.JFrame {
                 //o el número 0 si ya hay algún digito introducido
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
-                if (!subOperation.equals(OperationType.BRACKETS) && !subOperation.equals(OperationType.RECIPROC)) {
+                if (!subOperation.equals(OperationType.RECIPROC) && !subOperation.equals(OperationType.SQRT)) {
                     ////////////////////////////////////////////////////////////////////////////////////////////////////
                     ////////////////////////////////////////////////////////////////////////////////////////////////////
                     //El sistema solo acepta el número 0 si ya hay una coma (por tanto es un número decimal)
@@ -1651,7 +1625,7 @@ public class BasicCalculator extends javax.swing.JFrame {
     private void jButtonEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEqualsActionPerformed
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////
-        //Si nos encontramos en un reciproc debemos esperar a que se pulse un signo de operación
+        //Si nos encontramos en un reciproc/SQRT debemos esperar a que se pulse un signo de operación
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         if (!operation.equals(OperationType.NONE) && operateOne != Double.MAX_VALUE && !showNumber.equals("") && !showNumber.equals("-") && !showNumber.equals("0,")) {
@@ -1683,22 +1657,34 @@ public class BasicCalculator extends javax.swing.JFrame {
         // TODO add your handling code here:
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////
-        //Comprobamos si tenemos que borrar un reciproc
+        //Comprobamos si tenemos que borrar un reciproc/SQRT
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         if (!TxfLive.getText().equals("")) {
-            if (TxfLive.getText().substring((TxfLive.getText().length() - 1), TxfLive.getText().length()).equals("}")) {
-                int first = TxfLive.getText().lastIndexOf("R");
-                txAHistoryStr = txAHistoryStr.substring(0, first);
-                TxfLive.setText(txAHistoryStr);
-                TxfScreen.setText("0");
-                showNumber = "";
-                subOperation = OperationType.NONE;
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-                //Solo realizamos operación de borrado si hay algo en la cadena
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
+            switch (TxfLive.getText().substring((TxfLive.getText().length() - 1), TxfLive.getText().length())) {
+                case "}": {
+                    int first = TxfLive.getText().lastIndexOf("R");
+                    txAHistoryStr = txAHistoryStr.substring(0, first);
+                    TxfLive.setText(txAHistoryStr);
+                    TxfScreen.setText("0");
+                    showNumber = "";
+                    subOperation = OperationType.NONE;
+                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                    //Solo realizamos operación de borrado si hay algo en la cadena
+                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                    break;
+                }
+                case "√": {
+                    int first = TxfLive.getText().lastIndexOf("√");
+                    txAHistoryStr = txAHistoryStr.substring(0, first);
+                    TxfLive.setText(txAHistoryStr);
+                    TxfScreen.setText("0");
+                    showNumber = "";
+                    subOperation = OperationType.NONE;
+                    break;
+                }
             }
         }
         if (!showNumber.equals("")) {
@@ -1734,18 +1720,35 @@ public class BasicCalculator extends javax.swing.JFrame {
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 if (!TxfLive.getText().equals("")) {
-                    if (TxfLive.getText().substring((TxfLive.getText().length() - 1), TxfLive.getText().length()).equals("}")) {
-                        int first = TxfLive.getText().lastIndexOf("R");
-                        txAHistoryStr = txAHistoryStr.substring(0, first);
-                        TxfLive.setText(txAHistoryStr);
-                        TxfScreen.setText("0");
-                        showNumber = "";
-                        subOperation = OperationType.NONE;
-                        ////////////////////////////////////////////////////////////////////////////////////////////////////
-                        ////////////////////////////////////////////////////////////////////////////////////////////////////
-                        //Solo realizamos operación de borrado si hay algo en la cadena
-                        ////////////////////////////////////////////////////////////////////////////////////////////////////
-                        ////////////////////////////////////////////////////////////////////////////////////////////////////
+                    switch (TxfLive.getText().substring((TxfLive.getText().length() - 1), TxfLive.getText().length())) {
+                        case "}": {
+                            int first = TxfLive.getText().lastIndexOf("R");
+                            txAHistoryStr = txAHistoryStr.substring(0, first);
+                            TxfLive.setText(txAHistoryStr);
+                            TxfScreen.setText("0");
+                            showNumber = "";
+                            subOperation = OperationType.NONE;
+                            ////////////////////////////////////////////////////////////////////////////////////////////////////
+                            ////////////////////////////////////////////////////////////////////////////////////////////////////
+                            //Solo realizamos operación de borrado si hay algo en la cadena
+                            ////////////////////////////////////////////////////////////////////////////////////////////////////
+                            ////////////////////////////////////////////////////////////////////////////////////////////////////
+                            break;
+                        }
+                        case "√": {
+                            int first = TxfLive.getText().lastIndexOf("√");
+                            txAHistoryStr = txAHistoryStr.substring(0, first);
+                            TxfLive.setText(txAHistoryStr);
+                            TxfScreen.setText("0");
+                            showNumber = "";
+                            subOperation = OperationType.NONE;
+                            ////////////////////////////////////////////////////////////////////////////////////////////////////
+                            ////////////////////////////////////////////////////////////////////////////////////////////////////
+                            //Solo realizamos operación de borrado si hay algo en la cadena
+                            ////////////////////////////////////////////////////////////////////////////////////////////////////
+                            ////////////////////////////////////////////////////////////////////////////////////////////////////
+                            break;
+                        }
                     }
                 }
                 if (!showNumber.equals("")) {
@@ -1783,33 +1786,6 @@ public class BasicCalculator extends javax.swing.JFrame {
         operation = OperationType.NONE;
         subOperation = OperationType.NONE;
     }//GEN-LAST:event_jButtonClearActionPerformed
-
-    private void jButtonCloseBracketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCloseBracketActionPerformed
-        // TODO add your handling code here:
-        if ((!operation.equals(OperationType.NONE)) && !showNumber.equals("0")) {
-            showNumber = showNumber.replace(",", ".");
-            operateTwo = Double.parseDouble(showNumber);
-            txAHistoryStr = txAHistoryStr + (evt.getActionCommand());
-            result = BasicOperations.makeOperation(operation, operateOne, operateTwo, decimalCounter);
-            operateOne = result;
-            if (result % 1.0 == 0) {
-                showNumber = Integer.toString(((int) (result)));
-            } else {
-                showNumber = Double.toString((result));
-            }
-            showNumber = showNumber.replace(".", ",");
-            TxfScreen.setText(showNumber);
-            TxfLive.setText(txAHistoryStr);
-            subOperation = OperationType.NONE;
-            operation = OperationType.BRACKETS;
-        }
-    }//GEN-LAST:event_jButtonCloseBracketActionPerformed
-
-    private void jButtonOpenBracketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOpenBracketActionPerformed
-        // TODO add your handling code here:
-        txAHistoryStr = txAHistoryStr + (evt.getActionCommand());
-        TxfLive.setText(txAHistoryStr);
-    }//GEN-LAST:event_jButtonOpenBracketActionPerformed
 
     private void jButtonClearHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearHistoryActionPerformed
         // TODO add your handling code here:
@@ -1875,29 +1851,18 @@ public class BasicCalculator extends javax.swing.JFrame {
                     case "-":
                         operation = OperationType.LESS;
                         break;
+                    case "/":
+                        operation = OperationType.DIVIDE;
+                        break;
+                    case "%":
+                        operation = OperationType.PERCENT;
+                        break;
                     default:
                         operation = OperationType.NONE;
                 }
             }
         }
     }//GEN-LAST:event_RequestOperation
-
-    private void jToggleLiveModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleLiveModeActionPerformed
-        // TODO add your handling code here:
-        if (jToggleLiveMode.getModel().isSelected()) {
-            Dimension size = new Dimension(this.getSize());
-            size.setSize(size.getWidth(), (size.getHeight() + 120));
-            this.setSize(size);
-            jButtonOpenBracket.setEnabled(true);
-            jButtonCloseBracket.setEnabled(true);
-        } else {
-            Dimension size = new Dimension(this.getSize());
-            size.setSize(size.getWidth(), (size.getHeight() - 120));
-            this.setSize(size);
-            jButtonOpenBracket.setEnabled(false);
-            jButtonCloseBracket.setEnabled(false);
-        }
-    }//GEN-LAST:event_jToggleLiveModeActionPerformed
 
     private void reciproc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reciproc
         // TODO add your handling code here:
@@ -1966,10 +1931,12 @@ public class BasicCalculator extends javax.swing.JFrame {
 
     private void jMenuCopy(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCopy
         // TODO add your handling code here:
+        if (!TxfScreen.getText().equals("")) {
+            TxfScreen.selectAll();
+            TxfScreen.copy();
+            TxfScreen.select(0, 0);
+        }
 
-        TxfScreen.selectAll();
-        TxfScreen.copy();
-        TxfScreen.select(0, 0);
     }//GEN-LAST:event_jMenuCopy
 
     private void jMenuPaste(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPaste
@@ -2065,6 +2032,7 @@ public class BasicCalculator extends javax.swing.JFrame {
         } else {
             Dimension size = new Dimension(this.getSize());
             size.setSize((size.getWidth() - 230), size.getHeight());
+            jTabbedPaneConversors.setEnabled(false);
             TxfKMH.setFocusable(false);
             TxfMPH.setFocusable(false);
             TxfKnot.setFocusable(false);
@@ -2085,6 +2053,7 @@ public class BasicCalculator extends javax.swing.JFrame {
     }//GEN-LAST:event_TxfKDegreesActionPerformed
     private void activatePanel() {
         // TODO add your handling code here:
+        jTabbedPaneConversors.setEnabled(true);
         if (jTabbedPaneConversors.getSelectedComponent().getName().equals("Degrees")) {
             TxfKMH.setFocusable(false);
             TxfMPH.setFocusable(false);
@@ -2128,7 +2097,12 @@ public class BasicCalculator extends javax.swing.JFrame {
 
     private void jButtonMemorySaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMemorySaveActionPerformed
         // TODO add your handling code here:
-        if (!showNumber.equals("")) {
+        if (showNumber.equals("") && result != Double.MAX_VALUE) {
+            TxfMemory.setText(Double.toString(result));
+            TxfMemory.setText(TxfMemory.getText().replace(".", ","));
+            memory = result;
+            jButtonClearEndActionPerformed(evt);
+        } else if (!showNumber.equals("")) {
             TxfMemory.setText(showNumber);
             showNumber = showNumber.replace(",", ".");
             memory = Double.parseDouble(showNumber);
@@ -2193,9 +2167,25 @@ public class BasicCalculator extends javax.swing.JFrame {
         TxfScreen.setText(showNumber);
     }//GEN-LAST:event_jButtonRecoverMemoryActionPerformed
 
-    private void jButtonChangeSign6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeSign6ActionPerformed
+    private void jButtonSQRTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSQRTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonChangeSign6ActionPerformed
+        if (!showNumber.equals("")) {
+            showNumber = showNumber.replace(",", ".");
+            result = Double.parseDouble(showNumber);
+            jButtonClearEndActionPerformed(evt);
+            txAHistoryStr = txAHistoryStr + ("√" + result);
+            TxfLive.setText(txAHistoryStr);
+            result = Math.sqrt(result);
+            if (result % 1.0 == 0) {
+                showNumber = Integer.toString(((int) (result)));
+                TxfScreen.setText(showNumber);
+            } else {
+                showNumber = Double.toString((result));
+                TxfScreen.setText(showNumber);
+            }
+            subOperation = OperationType.SQRT;
+        }
+    }//GEN-LAST:event_jButtonSQRTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2243,14 +2233,11 @@ public class BasicCalculator extends javax.swing.JFrame {
     private javax.swing.JTextField TxfMemory;
     private javax.swing.JTextField TxfScreen;
     private javax.swing.JFrame aboutDialog;
-    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButtonBack;
     private javax.swing.JButton jButtonChangeSign;
-    private javax.swing.JButton jButtonChangeSign6;
     private javax.swing.JButton jButtonClear;
     private javax.swing.JButton jButtonClearEnd;
     private javax.swing.JButton jButtonClearHistory;
-    private javax.swing.JButton jButtonCloseBracket;
     private javax.swing.JButton jButtonComma;
     private javax.swing.JButton jButtonDivide;
     private javax.swing.JButton jButtonEight;
@@ -2265,9 +2252,11 @@ public class BasicCalculator extends javax.swing.JFrame {
     private javax.swing.JButton jButtonMultiply;
     private javax.swing.JButton jButtonNine;
     private javax.swing.JButton jButtonOne;
-    private javax.swing.JButton jButtonOpenBracket;
+    private javax.swing.JButton jButtonPercent;
     private javax.swing.JButton jButtonPlus;
+    private javax.swing.JButton jButtonReciproc;
     private javax.swing.JButton jButtonRecoverMemory;
+    private javax.swing.JButton jButtonSQRT;
     private javax.swing.JButton jButtonSeven;
     private javax.swing.JButton jButtonSix;
     private javax.swing.JButton jButtonTrhee;
@@ -2305,7 +2294,6 @@ public class BasicCalculator extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPaneConversors;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JToggleButton jToggleConverters;
-    private javax.swing.JToggleButton jToggleLiveMode;
     private javax.swing.ButtonGroup precisionDecimalsGroup;
     // End of variables declaration//GEN-END:variables
 }
