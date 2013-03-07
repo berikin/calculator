@@ -38,9 +38,11 @@ public class AquaCalculator extends javax.swing.JFrame {
      */
     public AquaCalculator() {
         initComponents();
-        System.out.println(javax.swing.UIManager.getLookAndFeel().getName());
         if (javax.swing.UIManager.getLookAndFeel().getName().startsWith("Quaqua") || javax.swing.UIManager.getLookAndFeel().getName().startsWith("Windows") || javax.swing.UIManager.getLookAndFeel().getName().startsWith("Mac")) {
             setAquaColors();
+        } else if (javax.swing.UIManager.getLookAndFeel().getName().startsWith("Metal")) {
+            setMetalStyle();
+            getContentPane().setBackground(new java.awt.Color(51, 51, 51));
         } else {
             setStyle();
             getContentPane().setBackground(new java.awt.Color(64, 40, 89)); //COLOR DE FONDO DEL JFRAME
@@ -202,7 +204,7 @@ public class AquaCalculator extends javax.swing.JFrame {
         jTextAreaInfo.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jTextAreaInfo.setForeground(new java.awt.Color(106, 68, 138));
         jTextAreaInfo.setRows(3);
-        jTextAreaInfo.setText("Diseñada por José Anotnio Yáñez Jiménez\nDesarrollo de Aplicaciones Web, IES Galileo\nMarzo de 2013");
+        jTextAreaInfo.setText("Diseñada por José Antonio Yáñez Jiménez\nDesarrollo de Aplicaciones Web, IES Galileo\nMarzo de 2013");
         jTextAreaInfo.setAutoscrolls(false);
         jTextAreaInfo.setBorder(null);
         jTextAreaInfo.setCaretColor(new java.awt.Color(204, 204, 255));
@@ -2359,6 +2361,208 @@ public class AquaCalculator extends javax.swing.JFrame {
     //</editor-fold>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // <editor-fold defaultstate="collapsed" desc="COLORES METAL">  
+    private void setMetalStyle() {
+        jMenuBar1.setBackground(new java.awt.Color(51, 51, 51));
+        aboutDialog.setBackground(new java.awt.Color(51, 51, 51));
+        jPanelAbout.setBackground(new java.awt.Color(51, 51, 51));
+        jLabelImage.setBackground(new java.awt.Color(51, 51, 51));
+        jLabelCalculator.setForeground(new java.awt.Color(238, 238, 238));
+        jTextAreaInfo.setBackground(new java.awt.Color(51, 51, 51));
+        jTextAreaInfo.setForeground(new java.awt.Color(238, 238, 238));
+        this.setBackground(new java.awt.Color(51, 51, 51));
+        this.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        this.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonTwo.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonTwo.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonTwo.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonOne.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonOne.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonOne.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonComma.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonComma.setFont(new java.awt.Font("Trebuchet MS", 1, 13));
+        jButtonComma.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonZero.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonZero.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonZero.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonSix.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonSix.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonSix.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonFour.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonFour.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonFour.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonFive.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonFive.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonFive.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonNine.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonNine.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonNine.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonSeven.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonSeven.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonSeven.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonEight.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonEight.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonEight.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonTrhee.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonTrhee.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonTrhee.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonPlus.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonPlus.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonPlus.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonDivide.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonDivide.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonDivide.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonMultiply.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonMultiply.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonMultiply.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonLess.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonLess.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonLess.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonReciproc.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonReciproc.setFont(new java.awt.Font("Trebuchet MS", 1, 11));
+        jButtonReciproc.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonEquals.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonEquals.setFont(new java.awt.Font("Trebuchet MS", 1, 18));
+        jButtonEquals.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonClearEnd.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonClearEnd.setFont(new java.awt.Font("Trebuchet MS", 1, 13));
+        jButtonClearEnd.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonBack.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonBack.setFont(new java.awt.Font("Trebuchet MS", 1, 13));
+        jButtonBack.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonClear.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonClear.setFont(new java.awt.Font("Trebuchet MS", 1, 13));
+        jButtonClear.setForeground(new java.awt.Color(238, 238, 238));
+        TxfLive.setBackground(new java.awt.Color(51, 51, 51));
+        TxfLive.setFont(new java.awt.Font("Monospaced", 1, 12));
+        TxfLive.setForeground(new java.awt.Color(238, 238, 238));
+        TxAHistory.setBackground(new java.awt.Color(51, 51, 51));
+        TxAHistory.setColumns(20);
+        TxAHistory.setFont(new java.awt.Font("Monospaced", 1, 12));
+        TxAHistory.setForeground(new java.awt.Color(238, 238, 238));
+        TxfScreen.setBackground(new java.awt.Color(51, 51, 51));
+        TxfScreen.setForeground(new java.awt.Color(238, 238, 238));
+        TxfScreen.setFont(new java.awt.Font("Monospaced", 1, 18));
+        jButtonClearHistory.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonClearHistory.setFont(new java.awt.Font("Trebuchet MS", 1, 18));
+        jButtonClearHistory.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonChangeSign.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonChangeSign.setFont(new java.awt.Font("Trebuchet MS", 1, 11));
+        jButtonChangeSign.setForeground(new java.awt.Color(238, 238, 238));
+        jToggleConverters.setBackground(new java.awt.Color(51, 51, 51));
+        jToggleConverters.setFont(new java.awt.Font("Trebuchet MS", 1, 13));
+        jToggleConverters.setForeground(new java.awt.Color(238, 238, 238));
+        jTabbedPaneConversors.setBackground(new java.awt.Color(51, 51, 51));
+        jPanelDegrees.setBackground(new java.awt.Color(51, 51, 51));
+        jPanelDistances.setBackground(new java.awt.Color(51, 51, 51));
+        TxfCDegrees.setForeground(new java.awt.Color(238, 238, 238));
+        TxfCDegrees.setFont(new java.awt.Font("Monospaced", 1, 18));
+        TxfFDegrees.setForeground(new java.awt.Color(238, 238, 238));
+        TxfFDegrees.setFont(new java.awt.Font("Monospaced", 1, 18));
+        TxfKDegrees.setForeground(new java.awt.Color(238, 238, 238));
+        TxfKDegrees.setFont(new java.awt.Font("Monospaced", 1, 18));
+        TxfCDegrees.setBackground(new java.awt.Color(51, 51, 51));
+        TxfFDegrees.setBackground(new java.awt.Color(51, 51, 51));
+        TxfKDegrees.setBackground(new java.awt.Color(51, 51, 51));
+        jLabelFarenheit.setForeground(new java.awt.Color(238, 238, 238));
+        jLabelKelvin.setForeground(new java.awt.Color(238, 238, 238));
+        jLabelCelsius.setForeground(new java.awt.Color(238, 238, 238));
+        jLabelCelsius.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jLabelFarenheit.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jLabelKelvin.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        TxfKMH.setForeground(new java.awt.Color(238, 238, 238));
+        TxfKMH.setBackground(new java.awt.Color(51, 51, 51));
+        TxfKMH.setFont(new java.awt.Font("Monospaced", 1, 18));
+        TxfMPH.setBackground(new java.awt.Color(51, 51, 51));
+        TxfMPH.setForeground(new java.awt.Color(238, 238, 238));
+        TxfMPH.setFont(new java.awt.Font("Monospaced", 1, 18));
+        TxfKnot.setBackground(new java.awt.Color(51, 51, 51));
+        TxfKnot.setForeground(new java.awt.Color(238, 238, 238));
+        TxfKnot.setFont(new java.awt.Font("Monospaced", 1, 18));
+        jLabelKMH.setForeground(new java.awt.Color(238, 238, 238));
+        jLabelMPH.setForeground(new java.awt.Color(238, 238, 238));
+        jLabelKN.setForeground(new java.awt.Color(238, 238, 238));
+        jLabelKMH.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jLabelMPH.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jLabelKN.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonMemorySave.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonMemorySave.setFont(new java.awt.Font("Trebuchet MS", 1, 11));
+        jButtonMemorySave.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonMemoryClear.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonMemoryClear.setFont(new java.awt.Font("Trebuchet MS", 1, 11));
+        jButtonMemoryClear.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonMemoryLess.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonMemoryLess.setFont(new java.awt.Font("Trebuchet MS", 1, 11));
+        jButtonMemoryLess.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonMemoryAdd.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonMemoryAdd.setFont(new java.awt.Font("Trebuchet MS", 1, 11));
+        jButtonMemoryAdd.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonRecoverMemory.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonRecoverMemory.setFont(new java.awt.Font("Trebuchet MS", 1, 11));
+        jButtonRecoverMemory.setForeground(new java.awt.Color(238, 238, 238));
+        TxfMemory.setBackground(new java.awt.Color(51, 51, 51));
+        TxfMemory.setForeground(new java.awt.Color(238, 238, 238));
+        TxfMemory.setFont(new java.awt.Font("Monospaced", 1, 18));
+        jButtonSQRT.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonSQRT.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonSQRT.setForeground(new java.awt.Color(238, 238, 238));
+        jButtonPercent.setBackground(new java.awt.Color(51, 51, 51));
+        jButtonPercent.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonPercent.setForeground(new java.awt.Color(238, 238, 238));
+        jMenuBar1.setForeground(new java.awt.Color(238, 238, 238));
+        jMenuEdit.setForeground(new java.awt.Color(238, 238, 238));
+        jMenuCopy.setForeground(new java.awt.Color(238, 238, 238));
+        jMenuPaste.setForeground(new java.awt.Color(238, 238, 238));
+        jMenuPrecision.setForeground(new java.awt.Color(238, 238, 238));
+        jRadioButtonNoDecimals.setForeground(new java.awt.Color(238, 238, 238));
+        jRadioButtonOneDecimal.setForeground(new java.awt.Color(238, 238, 238));
+        jRadioButtonTwoDecimals.setForeground(new java.awt.Color(238, 238, 238));
+        jRadioButtonThreeDecimals.setForeground(new java.awt.Color(238, 238, 238));
+        jRadioButtonFourDecimals.setForeground(new java.awt.Color(238, 238, 238));
+        jRadioButtonFiveDecimals.setForeground(new java.awt.Color(238, 238, 238));
+        jRadioButtonSixDecimals.setForeground(new java.awt.Color(238, 238, 238));
+        jRadioButtonSevenDecimals.setForeground(new java.awt.Color(238, 238, 238));
+        jRadioButtonEightDecimals.setForeground(new java.awt.Color(238, 238, 238));
+        jMenuCalculator.setForeground(new java.awt.Color(238, 238, 238));
+        jMenuAbout.setForeground(new java.awt.Color(238, 238, 238));
+        jMenuAppereance.setForeground(new java.awt.Color(238, 238, 238));
+        jMenuItemAquaSnow.setForeground(new java.awt.Color(238, 238, 238));
+        jMenuItemAquaPanther.setForeground(new java.awt.Color(238, 238, 238));
+        jMenuItemAqua.setForeground(new java.awt.Color(238, 238, 238));
+        jMenuItemMetal.setForeground(new java.awt.Color(238, 238, 238));
+        jMenuItemNimbus.setForeground(new java.awt.Color(238, 238, 238));
+        jMenuItemWindows.setForeground(new java.awt.Color(238, 238, 238));
+        jMenuBar1.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuEdit.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuCopy.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuPaste.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuPrecision.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButtonNoDecimals.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButtonOneDecimal.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButtonTwoDecimals.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButtonThreeDecimals.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButtonFourDecimals.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButtonFiveDecimals.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButtonSixDecimals.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButtonSevenDecimals.setBackground(new java.awt.Color(51, 51, 51));
+        jRadioButtonEightDecimals.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuCalculator.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuAbout.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuAppereance.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuItemAquaSnow.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuItemAquaPanther.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuItemAqua.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuItemMetal.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuItemNimbus.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuItemWindows.setBackground(new java.awt.Color(51, 51, 51));
+
+    }
+    //</editor-fold>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     // <editor-fold defaultstate="collapsed" desc="COLORES ESTANDAR">  

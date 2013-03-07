@@ -117,7 +117,7 @@
                       <Color blue="8a" green="44" red="6a" type="rgb"/>
                     </Property>
                     <Property name="rows" type="int" value="3"/>
-                    <Property name="text" type="java.lang.String" value="Dise&#xf1;ada por Jos&#xe9; Anotnio Y&#xe1;&#xf1;ez Jim&#xe9;nez&#xa;Desarrollo de Aplicaciones Web, IES Galileo&#xa;Marzo de 2013"/>
+                    <Property name="text" type="java.lang.String" value="Dise&#xf1;ada por Jos&#xe9; Antonio Y&#xe1;&#xf1;ez Jim&#xe9;nez&#xa;Desarrollo de Aplicaciones Web, IES Galileo&#xa;Marzo de 2013"/>
                     <Property name="autoscrolls" type="boolean" value="false"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
