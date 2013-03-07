@@ -4,29 +4,19 @@
  */
 package gui;
 
-import operations.*;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JButton;
-import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JTextField;
-import javax.swing.text.BadLocationException;
+import operations.*;
 
 /**
  *
  * @author berik
  */
 public class BasicCalculator extends javax.swing.JFrame {
-    //////////////////////////////////////////////////
-    //////////////////////////////////////////////////
-    //ATRIBUTOS
-    //////////////////////////////////////////////////
-    //////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // <editor-fold defaultstate="collapsed" desc="ATRIBUTOS DE CLASE">
 
     private int keyID;
     private int decimalCounter = 8;
@@ -38,18 +28,19 @@ public class BasicCalculator extends javax.swing.JFrame {
     private double operateTwo = Double.MAX_VALUE;
     private double result = Double.MAX_VALUE;
     private double memory = Double.MAX_VALUE;
+    // </editor-fold>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Creates new form BasicCalculator
      */
     public BasicCalculator() {
         initComponents();
-        getContentPane().setBackground(new java.awt.Color(64, 40, 89));
+        getContentPane().setBackground(new java.awt.Color(64, 40, 89)); //COLOR DE FONDO DEL JFRAME
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////
-        //BOTONES AGRUPADOS
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // <editor-fold defaultstate="collapsed" desc="BOTONES DE PRECISIÓN DECIMAL AGRUPADOS">
         precisionDecimalsGroup.add(jRadioButtonNoDecimals);
         precisionDecimalsGroup.add(jRadioButtonOneDecimal);
         precisionDecimalsGroup.add(jRadioButtonTwoDecimals);
@@ -59,6 +50,13 @@ public class BasicCalculator extends javax.swing.JFrame {
         precisionDecimalsGroup.add(jRadioButtonSixDecimals);
         precisionDecimalsGroup.add(jRadioButtonSevenDecimals);
         precisionDecimalsGroup.add(jRadioButtonEightDecimals);
+        // </editor-fold>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // <editor-fold defaultstate="collapsed" desc="FORZADO DE FOCO AL JFRAME">
         TxfKMH.setFocusable(false);
         TxfMPH.setFocusable(false);
         TxfKnot.setFocusable(false);
@@ -66,6 +64,9 @@ public class BasicCalculator extends javax.swing.JFrame {
         TxfFDegrees.setFocusable(false);
         TxfKDegrees.setFocusable(false);
         this.requestFocus();
+        // </editor-fold>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
     /**
@@ -585,11 +586,6 @@ public class BasicCalculator extends javax.swing.JFrame {
         TxfFDegrees.setFocusTraversalKeysEnabled(false);
         TxfFDegrees.setFocusable(false);
         TxfFDegrees.setName("FDegrees");
-        TxfFDegrees.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxfFDegreesActionPerformed(evt);
-            }
-        });
         TxfFDegrees.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 BasicCalculator.this.keyPressed(evt);
@@ -604,11 +600,6 @@ public class BasicCalculator extends javax.swing.JFrame {
         TxfKDegrees.setFocusTraversalKeysEnabled(false);
         TxfKDegrees.setFocusable(false);
         TxfKDegrees.setName("KDegrees");
-        TxfKDegrees.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxfKDegreesActionPerformed(evt);
-            }
-        });
         TxfKDegrees.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 BasicCalculator.this.keyPressed(evt);
@@ -1047,7 +1038,7 @@ public class BasicCalculator extends javax.swing.JFrame {
                     .add(TxfLive))
                 .add(18, 18, 18)
                 .add(jTabbedPaneConversors, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 196, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -1117,16 +1108,14 @@ public class BasicCalculator extends javax.swing.JFrame {
                     .add(layout.createSequentialGroup()
                         .add(2, 2, 2)
                         .add(jTabbedPaneConversors, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 470, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////
-    //TRATAMIENTO DEL PANEL DE CONVERSIÓN DE GRADOS
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // <editor-fold defaultstate="collapsed" desc="TRATAMIENTO DEL PANEL DE CONVERSIÓN DE GRADOS">
 
     private void degreeConvert(JTextField field, int type) {
         String aux;
@@ -1320,17 +1309,13 @@ public class BasicCalculator extends javax.swing.JFrame {
                 break;
         }
     }
+    // </editor-fold>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FIN DEL TRATAMIENTO DEL PANEL DE CONVERSIÓN DE GRADOS
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    //TRATAMIENTO DEL PANEL DE CONVERSIÓN DE DISTANCIAS
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // <editor-fold defaultstate="collapsed" desc="TRATAMIENTO DEL PANEL DE CONVERSIÓN DE DISTANCIAS">
     private void distancesConvert(JTextField field, int type) {
         String aux;
         double res1, res2;
@@ -1538,12 +1523,13 @@ public class BasicCalculator extends javax.swing.JFrame {
                 break;
         }
     }
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    //FIN DEL TRATAMIENTO DEL PANEL DE CONVERSIÓN DE DISTANCIAS
+    // </editor-fold>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // <editor-fold defaultstate="collapsed" desc="REDONDEO, NÚMERO">
     private static double roundToDecimals(double num, int dec) {
         return Math.round(num * Math.pow(10, dec)) / Math.pow(10, dec);
     }
@@ -1586,7 +1572,13 @@ public class BasicCalculator extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_numberClick
+    // </editor-fold>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // <editor-fold defaultstate="collapsed" desc="COMA, IGUAL, CE, ATRÁS, C, CH">
     private void jButtonCommaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCommaActionPerformed
         String focus = this.getFocusOwner().getName();
         switch (focus) {
@@ -1676,7 +1668,7 @@ public class BasicCalculator extends javax.swing.JFrame {
                     ////////////////////////////////////////////////////////////////////////////////////////////////////
                     break;
                 }
-                case "√": {
+                case "]": {
                     int first = TxfLive.getText().lastIndexOf("√");
                     txAHistoryStr = txAHistoryStr.substring(0, first);
                     TxfLive.setText(txAHistoryStr);
@@ -1720,6 +1712,7 @@ public class BasicCalculator extends javax.swing.JFrame {
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 if (!TxfLive.getText().equals("")) {
+                    System.out.println((TxfLive.getText().substring((TxfLive.getText().length() - 1), TxfLive.getText().length())));
                     switch (TxfLive.getText().substring((TxfLive.getText().length() - 1), TxfLive.getText().length())) {
                         case "}": {
                             int first = TxfLive.getText().lastIndexOf("R");
@@ -1735,7 +1728,7 @@ public class BasicCalculator extends javax.swing.JFrame {
                             ////////////////////////////////////////////////////////////////////////////////////////////////////
                             break;
                         }
-                        case "√": {
+                        case "]": {
                             int first = TxfLive.getText().lastIndexOf("√");
                             txAHistoryStr = txAHistoryStr.substring(0, first);
                             TxfLive.setText(txAHistoryStr);
@@ -1791,7 +1784,13 @@ public class BasicCalculator extends javax.swing.JFrame {
         // TODO add your handling code here:
         TxAHistory.setText("");
     }//GEN-LAST:event_jButtonClearHistoryActionPerformed
+    // </editor-fold>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // <editor-fold defaultstate="collapsed" desc="OPERACIONES(+ - / * % 1/x), SELECTOR PRECISIÓN, ACERCA DE">
     private void RequestOperation(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestOperation
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1867,10 +1866,11 @@ public class BasicCalculator extends javax.swing.JFrame {
     private void reciproc(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reciproc
         // TODO add your handling code here:
         if (!showNumber.equals("")) {
+            String aux = showNumber;
             showNumber = showNumber.replace(",", ".");
             result = Double.parseDouble(showNumber);
             jButtonClearEndActionPerformed(evt);
-            txAHistoryStr = txAHistoryStr + ("Reciproc{" + result + "}");
+            txAHistoryStr = txAHistoryStr + ("Reciproc{" + aux + "}");
             TxfLive.setText(txAHistoryStr);
             result = 1 / result;
             if (result % 1.0 == 0) {
@@ -1928,7 +1928,13 @@ public class BasicCalculator extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButtonChangeSignActionPerformed
+    // </editor-fold>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // <editor-fold defaultstate="collapsed" desc="COPIAR, PEGAR, TECLAS, CONVERSORES">
     private void jMenuCopy(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCopy
         // TODO add your handling code here:
         if (!TxfScreen.getText().equals("")) {
@@ -2043,14 +2049,6 @@ public class BasicCalculator extends javax.swing.JFrame {
             this.setSize(size);
         }
     }//GEN-LAST:event_jToggleConvertersActionPerformed
-
-    private void TxfFDegreesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxfFDegreesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxfFDegreesActionPerformed
-
-    private void TxfKDegreesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxfKDegreesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxfKDegreesActionPerformed
     private void activatePanel() {
         // TODO add your handling code here:
         jTabbedPaneConversors.setEnabled(true);
@@ -2094,10 +2092,21 @@ public class BasicCalculator extends javax.swing.JFrame {
             TxfKMH.requestFocus();
         }
     }//GEN-LAST:event_panelListener
+    // </editor-fold>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // <editor-fold defaultstate="collapsed" desc="MS, MC, M-, M+, MR, SQRT">
     private void jButtonMemorySaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMemorySaveActionPerformed
         // TODO add your handling code here:
         if (showNumber.equals("") && result != Double.MAX_VALUE) {
+            if (result % 1.0 == 0) {
+                TxfMemory.setText(Integer.toString(((int) (result))));
+            } else {
+                TxfMemory.setText(Double.toString(result));
+            }
             TxfMemory.setText(Double.toString(result));
             TxfMemory.setText(TxfMemory.getText().replace(".", ","));
             memory = result;
@@ -2170,10 +2179,11 @@ public class BasicCalculator extends javax.swing.JFrame {
     private void jButtonSQRTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSQRTActionPerformed
         // TODO add your handling code here:
         if (!showNumber.equals("")) {
+            String aux = showNumber;
             showNumber = showNumber.replace(",", ".");
             result = Double.parseDouble(showNumber);
             jButtonClearEndActionPerformed(evt);
-            txAHistoryStr = txAHistoryStr + ("√" + result);
+            txAHistoryStr = txAHistoryStr + ("√[" + aux + "]");
             TxfLive.setText(txAHistoryStr);
             result = Math.sqrt(result);
             if (result % 1.0 == 0) {
@@ -2186,6 +2196,9 @@ public class BasicCalculator extends javax.swing.JFrame {
             subOperation = OperationType.SQRT;
         }
     }//GEN-LAST:event_jButtonSQRTActionPerformed
+    // </editor-fold>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * @param args the command line arguments
@@ -2216,11 +2229,15 @@ public class BasicCalculator extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new BasicCalculator().setVisible(true);
             }
         });
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // <editor-fold defaultstate="collapsed" desc="DECLARACIÓN DE ELEMENTOS GRÁFICOS">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea TxAHistory;
     private javax.swing.JTextField TxfCDegrees;
@@ -2296,4 +2313,7 @@ public class BasicCalculator extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleConverters;
     private javax.swing.ButtonGroup precisionDecimalsGroup;
     // End of variables declaration//GEN-END:variables
+    // </editor-fold>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 }
