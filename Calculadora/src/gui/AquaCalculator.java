@@ -38,7 +38,8 @@ public class AquaCalculator extends javax.swing.JFrame {
      */
     public AquaCalculator() {
         initComponents();
-        if (javax.swing.UIManager.getLookAndFeel().getName().startsWith("Quaqua") || javax.swing.UIManager.getLookAndFeel().getName().startsWith("Windows")) {
+        System.out.println(javax.swing.UIManager.getLookAndFeel().getName());
+        if (javax.swing.UIManager.getLookAndFeel().getName().startsWith("Quaqua") || javax.swing.UIManager.getLookAndFeel().getName().startsWith("Windows") || javax.swing.UIManager.getLookAndFeel().getName().startsWith("Mac")) {
             setAquaColors();
         } else {
             setStyle();
@@ -897,9 +898,9 @@ public class AquaCalculator extends javax.swing.JFrame {
 
         jMenuAppereance.setText("Apariencia");
 
-        jMenuItemAqua.setText("Aqua Lion");
+        jMenuItemAqua.setText("Aqua");
         jMenuItemAqua.setToolTipText("Tema Mac OS X 10.7");
-        jMenuItemAqua.setActionCommand("7");
+        jMenuItemAqua.setActionCommand("X");
         jMenuItemAqua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemAquaActionPerformed(evt);
@@ -2232,27 +2233,44 @@ public class AquaCalculator extends javax.swing.JFrame {
         switch (aquaType) {
             case "3":
                 System.setProperty("Quaqua.design", "Panther");
+                System.setProperty(
+                        "Quaqua.tabLayoutPolicy", "wrap");
+                // System.setProperty("Quaqua.design", "Lion");
+                // set the Quaqua Look and Feel in the UIManager
+                try {
+                    UIManager.setLookAndFeel(ch.randelshofer.quaqua.QuaquaManager.getLookAndFeel());
+                    // set UI manager properties here that affect Quaqua
+
+                } catch (Exception e) {
+                    // take an appropriate action here
+                }
                 break;
             case "6":
                 System.setProperty("Quaqua.design", "Snow Leopard");
+                System.setProperty(
+                        "Quaqua.tabLayoutPolicy", "wrap");
+                // System.setProperty("Quaqua.design", "Lion");
+                // set the Quaqua Look and Feel in the UIManager
+                try {
+                    UIManager.setLookAndFeel(ch.randelshofer.quaqua.QuaquaManager.getLookAndFeel());
+                    // set UI manager properties here that affect Quaqua
+
+                } catch (Exception e) {
+                    // take an appropriate action here
+                }
                 break;
-            case "7":
-                System.setProperty("Quaqua.design", "Lion");
+            case "X":
+                try {
+                    UIManager.setLookAndFeel("com.apple.laf.AquaLookAndFeel");
+
+                } catch (Exception e) {
+                    // take an appropriate action here
+                }
                 break;
             default:
                 throw new AssertionError();
         }
-        System.setProperty(
-                "Quaqua.tabLayoutPolicy", "wrap");
-        // System.setProperty("Quaqua.design", "Lion");
-        // set the Quaqua Look and Feel in the UIManager
-        try {
-            UIManager.setLookAndFeel(ch.randelshofer.quaqua.QuaquaManager.getLookAndFeel());
-            // set UI manager properties here that affect Quaqua
 
-        } catch (Exception e) {
-            // take an appropriate action here
-        }
         this.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setVisible(false);
         this.dispose();
@@ -2530,13 +2548,7 @@ public class AquaCalculator extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AquaCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AquaCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AquaCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AquaCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         this.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -2560,13 +2572,7 @@ public class AquaCalculator extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AquaCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AquaCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AquaCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AquaCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         this.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);

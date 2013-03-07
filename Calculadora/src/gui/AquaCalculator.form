@@ -271,9 +271,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemAqua">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Aqua Lion"/>
+                <Property name="text" type="java.lang.String" value="Aqua"/>
                 <Property name="toolTipText" type="java.lang.String" value="Tema Mac OS X 10.7"/>
-                <Property name="actionCommand" type="java.lang.String" value="7"/>
+                <Property name="actionCommand" type="java.lang.String" value="X"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemAquaActionPerformed"/>
