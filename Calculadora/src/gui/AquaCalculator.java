@@ -7,7 +7,6 @@ package gui;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import operations.*;
 
@@ -39,7 +38,25 @@ public class AquaCalculator extends javax.swing.JFrame {
      */
     public AquaCalculator() {
         initComponents();
-        getContentPane().setBackground(new java.awt.Color(64, 40, 89)); //COLOR DE FONDO DEL JFRAME
+        if (javax.swing.UIManager.getLookAndFeel().getName().startsWith("Quaqua") || javax.swing.UIManager.getLookAndFeel().getName().startsWith("Windows")) {
+            setAquaColors();
+        } else {
+            setStyle();
+            getContentPane().setBackground(new java.awt.Color(64, 40, 89)); //COLOR DE FONDO DEL JFRAME
+        }
+        if (!System.getProperty("os.name").equals("Mac OS X")) {
+            jMenuItemAqua.setForeground(new java.awt.Color(204, 204, 204));
+            jMenuItemAqua.setEnabled(false);
+            jMenuItemAqua.setToolTipText("Deshabilitado en entornos " + System.getProperty("os.name"));
+            jMenuItemAquaSnow.setForeground(new java.awt.Color(204, 204, 204));
+            jMenuItemAquaSnow.setEnabled(false);
+            jMenuItemAquaSnow.setToolTipText("Deshabilitado en entornos " + System.getProperty("os.name"));
+        }
+        if (!System.getProperty("os.name").equals("Windows")) {
+            jMenuItemWindows.setForeground(new java.awt.Color(204, 204, 204));
+            jMenuItemWindows.setEnabled(false);
+            jMenuItemWindows.setToolTipText("Deshabilitado en entornos " + System.getProperty("os.name"));
+        }
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // <editor-fold defaultstate="collapsed" desc="BOTONES DE PRECISIÓN DECIMAL AGRUPADOS">
@@ -69,7 +86,7 @@ public class AquaCalculator extends javax.swing.JFrame {
         // </editor-fold>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////
-          this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -83,11 +100,11 @@ public class AquaCalculator extends javax.swing.JFrame {
 
         precisionDecimalsGroup = new javax.swing.ButtonGroup();
         aboutDialog = new javax.swing.JFrame();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jPanelAbout = new javax.swing.JPanel();
+        jLabelImage = new javax.swing.JLabel();
+        jLabelCalculator = new javax.swing.JLabel();
+        jScrollInfo = new javax.swing.JScrollPane();
+        jTextAreaInfo = new javax.swing.JTextArea();
         jButtonTwo = new javax.swing.JButton();
         jButtonOne = new javax.swing.JButton();
         jButtonComma = new javax.swing.JButton();
@@ -109,7 +126,7 @@ public class AquaCalculator extends javax.swing.JFrame {
         jButtonBack = new javax.swing.JButton();
         jButtonClear = new javax.swing.JButton();
         TxfLive = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollHistory = new javax.swing.JScrollPane();
         TxAHistory = new javax.swing.JTextArea();
         TxfScreen = new javax.swing.JTextField();
         jButtonClearHistory = new javax.swing.JButton();
@@ -154,10 +171,13 @@ public class AquaCalculator extends javax.swing.JFrame {
         jRadioButtonEightDecimals = new javax.swing.JRadioButtonMenuItem();
         jMenuCalculator = new javax.swing.JMenu();
         jMenuAbout = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        jMenuAppereance = new javax.swing.JMenu();
         jMenuItemAqua = new javax.swing.JMenuItem();
+        jMenuItemAquaPanther = new javax.swing.JMenuItem();
+        jMenuItemAquaSnow = new javax.swing.JMenuItem();
         jMenuItemMetal = new javax.swing.JMenuItem();
         jMenuItemNimbus = new javax.swing.JMenuItem();
+        jMenuItemWindows = new javax.swing.JMenuItem();
 
         aboutDialog.setTitle("Acerca de");
         aboutDialog.setAlwaysOnTop(true);
@@ -166,57 +186,57 @@ public class AquaCalculator extends javax.swing.JFrame {
         aboutDialog.setLocationRelativeTo(null);
         aboutDialog.setSize(new java.awt.Dimension(419, 423));
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanelAbout.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel1.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/about.png"))); // NOI18N
+        jLabelImage.setBackground(new java.awt.Color(204, 204, 255));
+        jLabelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/about.png"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(106, 68, 138));
-        jLabel2.setText("Calculadora Java 1.0");
+        jLabelCalculator.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
+        jLabelCalculator.setForeground(new java.awt.Color(106, 68, 138));
+        jLabelCalculator.setText("Calculadora Java 1.0");
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(204, 204, 255));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(106, 68, 138));
-        jTextArea1.setRows(3);
-        jTextArea1.setText("Diseñada por José Anotnio Yáñez Jiménez\nDesarrollo de Aplicaciones Web, IES Galileo\nMarzo de 2013");
-        jTextArea1.setAutoscrolls(false);
-        jTextArea1.setBorder(null);
-        jTextArea1.setCaretColor(new java.awt.Color(204, 204, 255));
-        jTextArea1.setDragEnabled(false);
-        jTextArea1.setFocusTraversalKeysEnabled(false);
-        jTextArea1.setFocusable(false);
-        jScrollPane2.setViewportView(jTextArea1);
+        jTextAreaInfo.setEditable(false);
+        jTextAreaInfo.setBackground(new java.awt.Color(204, 204, 255));
+        jTextAreaInfo.setColumns(20);
+        jTextAreaInfo.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jTextAreaInfo.setForeground(new java.awt.Color(106, 68, 138));
+        jTextAreaInfo.setRows(3);
+        jTextAreaInfo.setText("Diseñada por José Anotnio Yáñez Jiménez\nDesarrollo de Aplicaciones Web, IES Galileo\nMarzo de 2013");
+        jTextAreaInfo.setAutoscrolls(false);
+        jTextAreaInfo.setBorder(null);
+        jTextAreaInfo.setCaretColor(new java.awt.Color(204, 204, 255));
+        jTextAreaInfo.setDragEnabled(false);
+        jTextAreaInfo.setFocusTraversalKeysEnabled(false);
+        jTextAreaInfo.setFocusable(false);
+        jScrollInfo.setViewportView(jTextAreaInfo);
 
-        org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel1Layout.createSequentialGroup()
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel1Layout.createSequentialGroup()
+        org.jdesktop.layout.GroupLayout jPanelAboutLayout = new org.jdesktop.layout.GroupLayout(jPanelAbout);
+        jPanelAbout.setLayout(jPanelAboutLayout);
+        jPanelAboutLayout.setHorizontalGroup(
+            jPanelAboutLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jPanelAboutLayout.createSequentialGroup()
+                .add(jPanelAboutLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanelAboutLayout.createSequentialGroup()
                         .add(16, 16, 16)
-                        .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 385, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(jScrollInfo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 385, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jPanelAboutLayout.createSequentialGroup()
                         .add(77, 77, 77)
-                        .add(jLabel1)))
+                        .add(jLabelImage)))
                 .addContainerGap(18, Short.MAX_VALUE))
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelAboutLayout.createSequentialGroup()
                 .add(0, 0, Short.MAX_VALUE)
-                .add(jLabel2)
+                .add(jLabelCalculator)
                 .add(32, 32, 32))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+        jPanelAboutLayout.setVerticalGroup(
+            jPanelAboutLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelAboutLayout.createSequentialGroup()
                 .addContainerGap()
-                .add(jLabel1)
+                .add(jLabelImage)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 63, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jLabelCalculator, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 63, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 69, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jScrollInfo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 69, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(51, 51, 51))
         );
 
@@ -224,16 +244,15 @@ public class AquaCalculator extends javax.swing.JFrame {
         aboutDialog.getContentPane().setLayout(aboutDialogLayout);
         aboutDialogLayout.setHorizontalGroup(
             aboutDialogLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .add(jPanelAbout, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
         );
         aboutDialogLayout.setVerticalGroup(
             aboutDialogLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .add(jPanelAbout, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora");
-        setBackground(new java.awt.Color(64, 40, 89));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(new java.awt.Color(153, 51, 255));
         setPreferredSize(new java.awt.Dimension(510, 530));
@@ -244,9 +263,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonTwo.setBackground(new java.awt.Color(108, 81, 136));
         jButtonTwo.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonTwo.setForeground(new java.awt.Color(204, 204, 255));
         jButtonTwo.setText("2");
         jButtonTwo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonTwo.setFocusable(false);
@@ -256,9 +273,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonOne.setBackground(new java.awt.Color(108, 81, 136));
         jButtonOne.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonOne.setForeground(new java.awt.Color(204, 204, 255));
         jButtonOne.setText("1");
         jButtonOne.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonOne.setFocusable(false);
@@ -268,9 +283,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonComma.setBackground(new java.awt.Color(53, 32, 83));
         jButtonComma.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
-        jButtonComma.setForeground(new java.awt.Color(204, 204, 255));
         jButtonComma.setText(",");
         jButtonComma.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonComma.setFocusable(false);
@@ -280,9 +293,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonZero.setBackground(new java.awt.Color(108, 81, 136));
         jButtonZero.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonZero.setForeground(new java.awt.Color(204, 204, 255));
         jButtonZero.setText("0");
         jButtonZero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonZero.setFocusable(false);
@@ -292,9 +303,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonSix.setBackground(new java.awt.Color(108, 81, 136));
         jButtonSix.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonSix.setForeground(new java.awt.Color(204, 204, 255));
         jButtonSix.setText("6");
         jButtonSix.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSix.setFocusable(false);
@@ -304,9 +313,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonFour.setBackground(new java.awt.Color(108, 81, 136));
         jButtonFour.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonFour.setForeground(new java.awt.Color(204, 204, 255));
         jButtonFour.setText("4");
         jButtonFour.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonFour.setFocusable(false);
@@ -316,9 +323,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonFive.setBackground(new java.awt.Color(108, 81, 136));
         jButtonFive.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonFive.setForeground(new java.awt.Color(204, 204, 255));
         jButtonFive.setText("5");
         jButtonFive.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonFive.setFocusable(false);
@@ -328,9 +333,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonNine.setBackground(new java.awt.Color(108, 81, 136));
         jButtonNine.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonNine.setForeground(new java.awt.Color(204, 204, 255));
         jButtonNine.setText("9");
         jButtonNine.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonNine.setFocusable(false);
@@ -340,9 +343,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonSeven.setBackground(new java.awt.Color(108, 81, 136));
         jButtonSeven.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonSeven.setForeground(new java.awt.Color(204, 204, 255));
         jButtonSeven.setText("7");
         jButtonSeven.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSeven.setFocusable(false);
@@ -352,9 +353,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonEight.setBackground(new java.awt.Color(108, 81, 136));
         jButtonEight.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonEight.setForeground(new java.awt.Color(204, 204, 255));
         jButtonEight.setText("8");
         jButtonEight.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonEight.setFocusable(false);
@@ -364,9 +363,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonTrhee.setBackground(new java.awt.Color(108, 81, 136));
         jButtonTrhee.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonTrhee.setForeground(new java.awt.Color(204, 204, 255));
         jButtonTrhee.setText("3");
         jButtonTrhee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonTrhee.setFocusable(false);
@@ -376,9 +373,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonPlus.setBackground(new java.awt.Color(165, 151, 184));
         jButtonPlus.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonPlus.setForeground(new java.awt.Color(90, 48, 115));
         jButtonPlus.setText("+");
         jButtonPlus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonPlus.setFocusable(false);
@@ -388,9 +383,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonDivide.setBackground(new java.awt.Color(165, 151, 184));
         jButtonDivide.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonDivide.setForeground(new java.awt.Color(90, 48, 115));
         jButtonDivide.setText("/");
         jButtonDivide.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonDivide.setFocusable(false);
@@ -400,9 +393,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonMultiply.setBackground(new java.awt.Color(165, 151, 184));
         jButtonMultiply.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonMultiply.setForeground(new java.awt.Color(90, 48, 115));
         jButtonMultiply.setText("*");
         jButtonMultiply.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonMultiply.setFocusable(false);
@@ -412,9 +403,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonLess.setBackground(new java.awt.Color(165, 151, 184));
         jButtonLess.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonLess.setForeground(new java.awt.Color(90, 48, 115));
         jButtonLess.setText("-");
         jButtonLess.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonLess.setFocusable(false);
@@ -424,9 +413,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonReciproc.setBackground(new java.awt.Color(165, 151, 184));
         jButtonReciproc.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
-        jButtonReciproc.setForeground(new java.awt.Color(90, 48, 115));
         jButtonReciproc.setText("↺");
         jButtonReciproc.setToolTipText("Número inverso (1/número)");
         jButtonReciproc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -437,9 +424,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonEquals.setBackground(new java.awt.Color(165, 151, 184));
         jButtonEquals.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jButtonEquals.setForeground(new java.awt.Color(90, 48, 115));
         jButtonEquals.setText("=");
         jButtonEquals.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonEquals.setFocusable(false);
@@ -449,9 +434,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonClearEnd.setBackground(new java.awt.Color(165, 151, 184));
         jButtonClearEnd.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
-        jButtonClearEnd.setForeground(new java.awt.Color(90, 48, 115));
         jButtonClearEnd.setText("CE");
         jButtonClearEnd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonClearEnd.setFocusable(false);
@@ -461,9 +444,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonBack.setBackground(new java.awt.Color(165, 151, 184));
         jButtonBack.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
-        jButtonBack.setForeground(new java.awt.Color(90, 48, 115));
         jButtonBack.setText("←");
         jButtonBack.setToolTipText("");
         jButtonBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -474,9 +455,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonClear.setBackground(new java.awt.Color(165, 151, 184));
         jButtonClear.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
-        jButtonClear.setForeground(new java.awt.Color(90, 48, 115));
         jButtonClear.setText("C");
         jButtonClear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonClear.setFocusable(false);
@@ -487,9 +466,7 @@ public class AquaCalculator extends javax.swing.JFrame {
         });
 
         TxfLive.setEditable(false);
-        TxfLive.setBackground(new java.awt.Color(108, 81, 136));
         TxfLive.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
-        TxfLive.setForeground(new java.awt.Color(204, 204, 255));
         TxfLive.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfLive.setToolTipText("Historial de operación actual");
         TxfLive.setDisabledTextColor(new java.awt.Color(102, 0, 153));
@@ -497,21 +474,18 @@ public class AquaCalculator extends javax.swing.JFrame {
         TxfLive.setFocusable(false);
         TxfLive.setSelectionColor(new java.awt.Color(102, 0, 153));
 
-        jScrollPane1.setFocusable(false);
+        jScrollHistory.setFocusable(false);
 
         TxAHistory.setEditable(false);
-        TxAHistory.setBackground(new java.awt.Color(108, 81, 136));
         TxAHistory.setColumns(20);
         TxAHistory.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
-        TxAHistory.setForeground(new java.awt.Color(204, 204, 255));
         TxAHistory.setRows(4);
         TxAHistory.setToolTipText("Historial de operaciones");
         TxAHistory.setFocusTraversalKeysEnabled(false);
         TxAHistory.setFocusable(false);
-        jScrollPane1.setViewportView(TxAHistory);
+        jScrollHistory.setViewportView(TxAHistory);
 
         TxfScreen.setEditable(false);
-        TxfScreen.setBackground(new java.awt.Color(165, 151, 184));
         TxfScreen.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfScreen.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfScreen.setText("0");
@@ -519,9 +493,7 @@ public class AquaCalculator extends javax.swing.JFrame {
         TxfScreen.setFocusTraversalKeysEnabled(false);
         TxfScreen.setFocusable(false);
 
-        jButtonClearHistory.setBackground(new java.awt.Color(108, 81, 136));
         jButtonClearHistory.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jButtonClearHistory.setForeground(new java.awt.Color(204, 204, 255));
         jButtonClearHistory.setText("C");
         jButtonClearHistory.setToolTipText("Borrar historial");
         jButtonClearHistory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -532,9 +504,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonChangeSign.setBackground(new java.awt.Color(53, 32, 83));
         jButtonChangeSign.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
-        jButtonChangeSign.setForeground(new java.awt.Color(204, 204, 255));
         jButtonChangeSign.setText("+/-");
         jButtonChangeSign.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonChangeSign.setFocusable(false);
@@ -544,9 +514,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jToggleConverters.setBackground(new java.awt.Color(165, 151, 184));
         jToggleConverters.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
-        jToggleConverters.setForeground(new java.awt.Color(90, 48, 115));
         jToggleConverters.setText("Conversores");
         jToggleConverters.setToolTipText("El cálculo combinado espera a que se presione el botón de resultado para evaluar una operación compleja combinando varias operaciones simples");
         jToggleConverters.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -557,7 +525,6 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jTabbedPaneConversors.setBackground(new java.awt.Color(204, 204, 255));
         jTabbedPaneConversors.setEnabled(false);
         jTabbedPaneConversors.setFocusable(false);
         jTabbedPaneConversors.setRequestFocusEnabled(false);
@@ -567,12 +534,10 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jPanelDegrees.setBackground(new java.awt.Color(165, 151, 184));
         jPanelDegrees.setFocusable(false);
         jPanelDegrees.setName("Degrees");
 
         TxfCDegrees.setEditable(false);
-        TxfCDegrees.setBackground(new java.awt.Color(165, 151, 184));
         TxfCDegrees.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfCDegrees.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfCDegrees.setText("0");
@@ -586,7 +551,6 @@ public class AquaCalculator extends javax.swing.JFrame {
         });
 
         TxfFDegrees.setEditable(false);
-        TxfFDegrees.setBackground(new java.awt.Color(165, 151, 184));
         TxfFDegrees.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfFDegrees.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfFDegrees.setText("32");
@@ -600,7 +564,6 @@ public class AquaCalculator extends javax.swing.JFrame {
         });
 
         TxfKDegrees.setEditable(false);
-        TxfKDegrees.setBackground(new java.awt.Color(165, 151, 184));
         TxfKDegrees.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfKDegrees.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfKDegrees.setText("273,15");
@@ -659,12 +622,10 @@ public class AquaCalculator extends javax.swing.JFrame {
 
         jTabbedPaneConversors.addTab("Grados", jPanelDegrees);
 
-        jPanelDistances.setBackground(new java.awt.Color(165, 151, 184));
         jPanelDistances.setFocusable(false);
         jPanelDistances.setName("Distances");
 
         TxfKMH.setEditable(false);
-        TxfKMH.setBackground(new java.awt.Color(165, 151, 184));
         TxfKMH.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfKMH.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfKMH.setText("0");
@@ -678,7 +639,6 @@ public class AquaCalculator extends javax.swing.JFrame {
         });
 
         TxfMPH.setEditable(false);
-        TxfMPH.setBackground(new java.awt.Color(165, 151, 184));
         TxfMPH.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfMPH.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfMPH.setText("0");
@@ -692,7 +652,6 @@ public class AquaCalculator extends javax.swing.JFrame {
         });
 
         TxfKnot.setEditable(false);
-        TxfKnot.setBackground(new java.awt.Color(165, 151, 184));
         TxfKnot.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfKnot.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfKnot.setText("0");
@@ -749,9 +708,7 @@ public class AquaCalculator extends javax.swing.JFrame {
 
         jTabbedPaneConversors.addTab("Distancias", jPanelDistances);
 
-        jButtonMemorySave.setBackground(new java.awt.Color(225, 204, 255));
         jButtonMemorySave.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
-        jButtonMemorySave.setForeground(new java.awt.Color(90, 48, 115));
         jButtonMemorySave.setText("MS");
         jButtonMemorySave.setToolTipText("Guarda el valor actual de la interfaz de cálculo en una memoria");
         jButtonMemorySave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -762,9 +719,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonMemoryClear.setBackground(new java.awt.Color(225, 204, 255));
         jButtonMemoryClear.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
-        jButtonMemoryClear.setForeground(new java.awt.Color(90, 48, 115));
         jButtonMemoryClear.setText("MC");
         jButtonMemoryClear.setToolTipText("Borra la memoria");
         jButtonMemoryClear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -775,9 +730,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonMemoryLess.setBackground(new java.awt.Color(225, 204, 255));
         jButtonMemoryLess.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
-        jButtonMemoryLess.setForeground(new java.awt.Color(90, 48, 115));
         jButtonMemoryLess.setText("M-");
         jButtonMemoryLess.setToolTipText("Realiza una resta entre el valor actual de la interfaz de operaciones y la memoria");
         jButtonMemoryLess.setActionCommand("=");
@@ -789,9 +742,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonMemoryAdd.setBackground(new java.awt.Color(225, 204, 255));
         jButtonMemoryAdd.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
-        jButtonMemoryAdd.setForeground(new java.awt.Color(90, 48, 115));
         jButtonMemoryAdd.setText("M+");
         jButtonMemoryAdd.setToolTipText("Realiza una suma entre el valor actual de la interfaz de operaciones y la memoria");
         jButtonMemoryAdd.setActionCommand("=");
@@ -803,9 +754,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonRecoverMemory.setBackground(new java.awt.Color(225, 204, 255));
         jButtonRecoverMemory.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
-        jButtonRecoverMemory.setForeground(new java.awt.Color(90, 48, 115));
         jButtonRecoverMemory.setText("MR");
         jButtonRecoverMemory.setToolTipText("Devuelve la memoria a la interfaz de cálculo");
         jButtonRecoverMemory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -817,16 +766,13 @@ public class AquaCalculator extends javax.swing.JFrame {
         });
 
         TxfMemory.setEditable(false);
-        TxfMemory.setBackground(new java.awt.Color(165, 151, 184));
         TxfMemory.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         TxfMemory.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         TxfMemory.setToolTipText("Memoria");
         TxfMemory.setFocusTraversalKeysEnabled(false);
         TxfMemory.setFocusable(false);
 
-        jButtonSQRT.setBackground(new java.awt.Color(165, 151, 184));
         jButtonSQRT.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonSQRT.setForeground(new java.awt.Color(90, 48, 115));
         jButtonSQRT.setText("√");
         jButtonSQRT.setToolTipText("");
         jButtonSQRT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -837,9 +783,7 @@ public class AquaCalculator extends javax.swing.JFrame {
             }
         });
 
-        jButtonPercent.setBackground(new java.awt.Color(165, 151, 184));
         jButtonPercent.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonPercent.setForeground(new java.awt.Color(90, 48, 115));
         jButtonPercent.setText("%");
         jButtonPercent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonPercent.setFocusable(false);
@@ -851,7 +795,6 @@ public class AquaCalculator extends javax.swing.JFrame {
 
         jMenuBar1.setForeground(new java.awt.Color(88, 65, 115));
 
-        jMenuEdit.setForeground(new java.awt.Color(88, 65, 115));
         jMenuEdit.setText("Edición");
 
         jMenuCopy.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
@@ -874,7 +817,6 @@ public class AquaCalculator extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuEdit);
 
-        jMenuPrecision.setForeground(new java.awt.Color(88, 65, 115));
         jMenuPrecision.setText("Precisión");
 
         jRadioButtonNoDecimals.setText("Sin decimales");
@@ -941,7 +883,6 @@ public class AquaCalculator extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuPrecision);
 
-        jMenuCalculator.setForeground(new java.awt.Color(88, 65, 115));
         jMenuCalculator.setText("Calculadora");
 
         jMenuAbout.setText("Acerca de");
@@ -954,37 +895,63 @@ public class AquaCalculator extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuCalculator);
 
-        jMenu1.setForeground(new java.awt.Color(88, 65, 115));
-        jMenu1.setText("Apariencia");
+        jMenuAppereance.setText("Apariencia");
 
-        jMenuItemAqua.setForeground(new java.awt.Color(88, 65, 115));
-        jMenuItemAqua.setText("Aqua");
+        jMenuItemAqua.setText("Aqua Lion");
+        jMenuItemAqua.setToolTipText("Tema Mac OS X 10.7");
+        jMenuItemAqua.setActionCommand("7");
         jMenuItemAqua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemAquaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItemAqua);
+        jMenuAppereance.add(jMenuItemAqua);
 
-        jMenuItemMetal.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuItemAquaPanther.setText("Aqua Panther");
+        jMenuItemAquaPanther.setToolTipText("Tema Mac OS X 10.3");
+        jMenuItemAquaPanther.setActionCommand("3");
+        jMenuItemAquaPanther.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAquaActionPerformed(evt);
+            }
+        });
+        jMenuAppereance.add(jMenuItemAquaPanther);
+
+        jMenuItemAquaSnow.setText("Aqua Snow Leopard");
+        jMenuItemAquaSnow.setToolTipText("Tema Mac OS X 10.6");
+        jMenuItemAquaSnow.setActionCommand("6");
+        jMenuItemAquaSnow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAquaActionPerformed(evt);
+            }
+        });
+        jMenuAppereance.add(jMenuItemAquaSnow);
+
         jMenuItemMetal.setText("Metal");
         jMenuItemMetal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemMetalActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItemMetal);
+        jMenuAppereance.add(jMenuItemMetal);
 
-        jMenuItemNimbus.setForeground(new java.awt.Color(88, 65, 115));
         jMenuItemNimbus.setText("Nimbus");
         jMenuItemNimbus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemNimbusActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItemNimbus);
+        jMenuAppereance.add(jMenuItemNimbus);
 
-        jMenuBar1.add(jMenu1);
+        jMenuItemWindows.setText("Windows");
+        jMenuItemWindows.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemWindowsActionPerformed(evt);
+            }
+        });
+        jMenuAppereance.add(jMenuItemWindows);
+
+        jMenuBar1.add(jMenuAppereance);
 
         setJMenuBar(jMenuBar1);
 
@@ -996,7 +963,7 @@ public class AquaCalculator extends javax.swing.JFrame {
                 .add(10, 10, 10)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(layout.createSequentialGroup()
-                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 431, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jScrollHistory, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 431, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(jButtonClearHistory, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(layout.createSequentialGroup()
@@ -1071,7 +1038,7 @@ public class AquaCalculator extends javax.swing.JFrame {
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 104, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jScrollHistory, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 104, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(jButtonClearHistory, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 102, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(TxfLive, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 24, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -1744,7 +1711,6 @@ public class AquaCalculator extends javax.swing.JFrame {
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 if (!TxfLive.getText().equals("")) {
-                    System.out.println((TxfLive.getText().substring((TxfLive.getText().length() - 1), TxfLive.getText().length())));
                     switch (TxfLive.getText().substring((TxfLive.getText().length() - 1), TxfLive.getText().length())) {
                         case "}": {
                             int first = TxfLive.getText().lastIndexOf("R");
@@ -2228,10 +2194,17 @@ public class AquaCalculator extends javax.swing.JFrame {
             subOperation = OperationType.SQRT;
         }
     }//GEN-LAST:event_jButtonSQRTActionPerformed
+    // </editor-fold>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // <editor-fold defaultstate="collapsed" desc="SWITCHERS TEMAS">
     private void jMenuItemAquaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAquaActionPerformed
         // TODO add your handling code here:
-        setAqua();
+
+        setAqua(evt.getActionCommand());
     }//GEN-LAST:event_jMenuItemAquaActionPerformed
 
     private void jMenuItemNimbusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNimbusActionPerformed
@@ -2243,6 +2216,11 @@ public class AquaCalculator extends javax.swing.JFrame {
         // TODO add your handling code here:
         setMetal();
     }//GEN-LAST:event_jMenuItemMetalActionPerformed
+
+    private void jMenuItemWindowsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemWindowsActionPerformed
+        // TODO add your handling code here:
+        setWindows();
+    }//GEN-LAST:event_jMenuItemWindowsActionPerformed
     // </editor-fold>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2250,10 +2228,23 @@ public class AquaCalculator extends javax.swing.JFrame {
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     // <editor-fold defaultstate="collapsed" desc="TEMA AQUA">  
-    private void setAqua() {
-
+    private void setAqua(String aquaType) {
+        switch (aquaType) {
+            case "3":
+                System.setProperty("Quaqua.design", "Panther");
+                break;
+            case "6":
+                System.setProperty("Quaqua.design", "Snow Leopard");
+                break;
+            case "7":
+                System.setProperty("Quaqua.design", "Lion");
+                break;
+            default:
+                throw new AssertionError();
+        }
         System.setProperty(
                 "Quaqua.tabLayoutPolicy", "wrap");
+        // System.setProperty("Quaqua.design", "Lion");
         // set the Quaqua Look and Feel in the UIManager
         try {
             UIManager.setLookAndFeel(ch.randelshofer.quaqua.QuaquaManager.getLookAndFeel());
@@ -2262,40 +2253,266 @@ public class AquaCalculator extends javax.swing.JFrame {
         } catch (Exception e) {
             // take an appropriate action here
         }
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        this.setVisible(false);
+        this.dispose();
+        new AquaCalculator().setVisible(true);
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAquaColors();
+    }
 
-        jButtonBack.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonChangeSign.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonClear.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonClearEnd.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonClearHistory.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonComma.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonDivide.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonEight.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonEquals.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonFive.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonFour.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonLess.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonMemoryAdd.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonMemoryClear.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonMemoryLess.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonMemorySave.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonMultiply.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonNine.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonOne.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonPercent.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonPlus.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonReciproc.setForeground(new java.awt.Color(90, 48, 115));
+    private void setWindows() {
+
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            // set UI manager properties here that affect Quaqua
+
+        } catch (Exception e) {
+            // take an appropriate action here
+        }
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        this.setVisible(false);
+        this.dispose();
+        new AquaCalculator().setVisible(true);
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAquaColors();
+    }
+    //</editor-fold>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // <editor-fold defaultstate="collapsed" desc="COLORES AQUA">  
+    private void setAquaColors() {
+        jButtonBack.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonChangeSign.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonClear.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonClearEnd.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonClearHistory.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonComma.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonDivide.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonEight.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonEquals.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonFive.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonFour.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonLess.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonMemoryAdd.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonMemoryClear.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonMemoryLess.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonMemorySave.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonMultiply.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonNine.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonOne.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonPercent.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonPlus.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonReciproc.setForeground(new java.awt.Color(0, 0, 0));
         jButtonReciproc.setFont(new java.awt.Font("TrebuchetMS", 1, 12));
+        jButtonRecoverMemory.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonSQRT.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonSeven.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonSix.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonTrhee.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonTwo.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonZero.setForeground(new java.awt.Color(0, 0, 0));
+        jToggleConverters.setForeground(new java.awt.Color(0, 0, 0));
+        jMenuEdit.setForeground(new java.awt.Color(0, 0, 0));
+        jMenuPrecision.setForeground(new java.awt.Color(0, 0, 0));
+        jMenuCalculator.setForeground(new java.awt.Color(0, 0, 0));
+        jMenuAppereance.setForeground(new java.awt.Color(0, 0, 0));
+        jMenuItemAqua.setForeground(new java.awt.Color(0, 0, 0));
+        jMenuItemMetal.setForeground(new java.awt.Color(0, 0, 0));
+        jMenuItemNimbus.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonNoDecimals.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonOneDecimal.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonTwoDecimals.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonThreeDecimals.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonFourDecimals.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonFiveDecimals.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonSixDecimals.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonSevenDecimals.setForeground(new java.awt.Color(0, 0, 0));
+        jRadioButtonEightDecimals.setForeground(new java.awt.Color(0, 0, 0));
+        jMenuCopy.setForeground(new java.awt.Color(0, 0, 0));
+        jMenuPaste.setForeground(new java.awt.Color(0, 0, 0));
+        TxAHistory.setBackground(new java.awt.Color(255, 255, 255));
+        TxAHistory.setForeground(new java.awt.Color(0, 0, 0));
+    }
+
+    //</editor-fold>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // <editor-fold defaultstate="collapsed" desc="COLORES ESTANDAR">  
+    private void setStyle() {
+        aboutDialog.setBackground(new java.awt.Color(204, 204, 255));
+        jPanelAbout.setBackground(new java.awt.Color(204, 204, 255));
+        jLabelImage.setBackground(new java.awt.Color(204, 204, 255));
+        jLabelCalculator.setForeground(new java.awt.Color(106, 68, 138));
+        jTextAreaInfo.setBackground(new java.awt.Color(204, 204, 255));
+        jTextAreaInfo.setForeground(new java.awt.Color(106, 68, 138));
+        this.setBackground(new java.awt.Color(64, 40, 89));
+        this.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        this.setForeground(new java.awt.Color(153, 51, 255));
+        jButtonTwo.setBackground(new java.awt.Color(108, 81, 136));
+        jButtonTwo.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonTwo.setForeground(new java.awt.Color(204, 204, 255));
+        jButtonOne.setBackground(new java.awt.Color(108, 81, 136));
+        jButtonOne.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonOne.setForeground(new java.awt.Color(204, 204, 255));
+        jButtonComma.setBackground(new java.awt.Color(53, 32, 83));
+        jButtonComma.setFont(new java.awt.Font("Trebuchet MS", 1, 13));
+        jButtonComma.setForeground(new java.awt.Color(204, 204, 255));
+        jButtonZero.setBackground(new java.awt.Color(108, 81, 136));
+        jButtonZero.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonZero.setForeground(new java.awt.Color(204, 204, 255));
+        jButtonSix.setBackground(new java.awt.Color(108, 81, 136));
+        jButtonSix.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonSix.setForeground(new java.awt.Color(204, 204, 255));
+        jButtonFour.setBackground(new java.awt.Color(108, 81, 136));
+        jButtonFour.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonFour.setForeground(new java.awt.Color(204, 204, 255));
+        jButtonFive.setBackground(new java.awt.Color(108, 81, 136));
+        jButtonFive.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonFive.setForeground(new java.awt.Color(204, 204, 255));
+        jButtonNine.setBackground(new java.awt.Color(108, 81, 136));
+        jButtonNine.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonNine.setForeground(new java.awt.Color(204, 204, 255));
+        jButtonSeven.setBackground(new java.awt.Color(108, 81, 136));
+        jButtonSeven.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonSeven.setForeground(new java.awt.Color(204, 204, 255));
+        jButtonEight.setBackground(new java.awt.Color(108, 81, 136));
+        jButtonEight.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonEight.setForeground(new java.awt.Color(204, 204, 255));
+        jButtonTrhee.setBackground(new java.awt.Color(108, 81, 136));
+        jButtonTrhee.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonTrhee.setForeground(new java.awt.Color(204, 204, 255));
+        jButtonPlus.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonPlus.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonPlus.setForeground(new java.awt.Color(90, 48, 115));
+        jButtonDivide.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonDivide.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonDivide.setForeground(new java.awt.Color(90, 48, 115));
+        jButtonMultiply.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonMultiply.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonMultiply.setForeground(new java.awt.Color(90, 48, 115));
+        jButtonLess.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonLess.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonLess.setForeground(new java.awt.Color(90, 48, 115));
+        jButtonReciproc.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonReciproc.setFont(new java.awt.Font("Trebuchet MS", 1, 11));
+        jButtonReciproc.setForeground(new java.awt.Color(90, 48, 115));
+        jButtonEquals.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonEquals.setFont(new java.awt.Font("Trebuchet MS", 1, 18));
+        jButtonEquals.setForeground(new java.awt.Color(90, 48, 115));
+        jButtonClearEnd.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonClearEnd.setFont(new java.awt.Font("Trebuchet MS", 1, 13));
+        jButtonClearEnd.setForeground(new java.awt.Color(90, 48, 115));
+        jButtonBack.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonBack.setFont(new java.awt.Font("Trebuchet MS", 1, 13));
+        jButtonBack.setForeground(new java.awt.Color(90, 48, 115));
+        jButtonClear.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonClear.setFont(new java.awt.Font("Trebuchet MS", 1, 13));
+        jButtonClear.setForeground(new java.awt.Color(90, 48, 115));
+        TxfLive.setBackground(new java.awt.Color(108, 81, 136));
+        TxfLive.setFont(new java.awt.Font("Monospaced", 1, 12));
+        TxfLive.setForeground(new java.awt.Color(204, 204, 255));
+        TxAHistory.setBackground(new java.awt.Color(108, 81, 136));
+        TxAHistory.setColumns(20);
+        TxAHistory.setFont(new java.awt.Font("Monospaced", 1, 12));
+        TxAHistory.setForeground(new java.awt.Color(204, 204, 255));
+        TxfScreen.setBackground(new java.awt.Color(165, 151, 184));
+        TxfScreen.setFont(new java.awt.Font("Monospaced", 1, 18));
+        TxfScreen.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jButtonClearHistory.setBackground(new java.awt.Color(108, 81, 136));
+        jButtonClearHistory.setFont(new java.awt.Font("Trebuchet MS", 1, 18));
+        jButtonClearHistory.setForeground(new java.awt.Color(204, 204, 255));
+        jButtonChangeSign.setBackground(new java.awt.Color(53, 32, 83));
+        jButtonChangeSign.setFont(new java.awt.Font("Trebuchet MS", 1, 11));
+        jButtonChangeSign.setForeground(new java.awt.Color(204, 204, 255));
+        jToggleConverters.setBackground(new java.awt.Color(165, 151, 184));
+        jToggleConverters.setFont(new java.awt.Font("Trebuchet MS", 1, 13));
+        jToggleConverters.setForeground(new java.awt.Color(90, 48, 115));
+        jTabbedPaneConversors.setBackground(new java.awt.Color(204, 204, 255));
+        jPanelDegrees.setBackground(new java.awt.Color(165, 151, 184));
+        jPanelDegrees.setFocusable(false);
+        jPanelDegrees.setName("Degrees");
+        TxfCDegrees.setBackground(new java.awt.Color(165, 151, 184));
+        TxfCDegrees.setFont(new java.awt.Font("Monospaced", 1, 18));
+        TxfFDegrees.setEditable(false);
+        TxfFDegrees.setBackground(new java.awt.Color(165, 151, 184));
+        TxfFDegrees.setFont(new java.awt.Font("Monospaced", 1, 18));
+        TxfKDegrees.setBackground(new java.awt.Color(165, 151, 184));
+        TxfKDegrees.setFont(new java.awt.Font("Monospaced", 1, 18));
+        jLabelCelsius.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jLabelCelsius.setText("Grados Centígrados");
+        jLabelFarenheit.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jLabelFarenheit.setText("Grados Farenheit");
+        jLabelKelvin.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jLabelKelvin.setText("Grados Kelvin");
+        jPanelDistances.setBackground(new java.awt.Color(165, 151, 184));
+        jPanelDistances.setFocusable(false);
+        jPanelDistances.setName("Distances");
+        TxfKMH.setBackground(new java.awt.Color(165, 151, 184));
+        TxfKMH.setFont(new java.awt.Font("Monospaced", 1, 18));
+        TxfMPH.setBackground(new java.awt.Color(165, 151, 184));
+        TxfMPH.setFont(new java.awt.Font("Monospaced", 1, 18));
+        TxfMPH.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        TxfKnot.setBackground(new java.awt.Color(165, 151, 184));
+        TxfKnot.setFont(new java.awt.Font("Monospaced", 1, 18));
+        jLabelKMH.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jLabelKMH.setText("Kilómetros por hora");
+        jLabelMPH.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jLabelMPH.setText("Millas por hora");
+        jLabelKN.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jLabelKN.setText("Nudos");
+        jButtonMemorySave.setBackground(new java.awt.Color(225, 204, 255));
+        jButtonMemorySave.setFont(new java.awt.Font("Trebuchet MS", 1, 11));
+        jButtonMemorySave.setForeground(new java.awt.Color(90, 48, 115));
+        jButtonMemoryClear.setBackground(new java.awt.Color(225, 204, 255));
+        jButtonMemoryClear.setFont(new java.awt.Font("Trebuchet MS", 1, 11));
+        jButtonMemoryClear.setForeground(new java.awt.Color(90, 48, 115));
+        jButtonMemoryLess.setBackground(new java.awt.Color(225, 204, 255));
+        jButtonMemoryLess.setFont(new java.awt.Font("Trebuchet MS", 1, 11));
+        jButtonMemoryLess.setForeground(new java.awt.Color(90, 48, 115));
+        jButtonMemoryAdd.setBackground(new java.awt.Color(225, 204, 255));
+        jButtonMemoryAdd.setFont(new java.awt.Font("Trebuchet MS", 1, 11));
+        jButtonMemoryAdd.setForeground(new java.awt.Color(90, 48, 115));
+        jButtonRecoverMemory.setBackground(new java.awt.Color(225, 204, 255));
+        jButtonRecoverMemory.setFont(new java.awt.Font("Trebuchet MS", 1, 11));
         jButtonRecoverMemory.setForeground(new java.awt.Color(90, 48, 115));
+        TxfMemory.setEditable(false);
+        TxfMemory.setBackground(new java.awt.Color(165, 151, 184));
+        TxfMemory.setFont(new java.awt.Font("Monospaced", 1, 18));
+        jButtonSQRT.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonSQRT.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
         jButtonSQRT.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonSeven.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonSix.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonTrhee.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonTwo.setForeground(new java.awt.Color(90, 48, 115));
-        jButtonZero.setForeground(new java.awt.Color(90, 48, 115));
-         this.setBackground(new java.awt.Color(64, 40, 89)); //COLOR DE FONDO DEL JFRAME
-        SwingUtilities.updateComponentTreeUI(this);
-        
+        jButtonPercent.setBackground(new java.awt.Color(165, 151, 184));
+        jButtonPercent.setFont(new java.awt.Font("Trebuchet MS", 1, 14));
+        jButtonPercent.setForeground(new java.awt.Color(90, 48, 115));
+        jMenuBar1.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuEdit.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuCopy.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuPaste.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuPrecision.setForeground(new java.awt.Color(88, 65, 115));
+        jRadioButtonNoDecimals.setForeground(new java.awt.Color(88, 65, 115));
+        jRadioButtonOneDecimal.setForeground(new java.awt.Color(88, 65, 115));
+        jRadioButtonTwoDecimals.setForeground(new java.awt.Color(88, 65, 115));
+        jRadioButtonThreeDecimals.setForeground(new java.awt.Color(88, 65, 115));
+        jRadioButtonFourDecimals.setForeground(new java.awt.Color(88, 65, 115));
+        jRadioButtonFiveDecimals.setForeground(new java.awt.Color(88, 65, 115));
+        jRadioButtonSixDecimals.setForeground(new java.awt.Color(88, 65, 115));
+        jRadioButtonSevenDecimals.setForeground(new java.awt.Color(88, 65, 115));
+        jRadioButtonEightDecimals.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuCalculator.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuAbout.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuAppereance.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuItemAquaSnow.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuItemAquaPanther.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuItemAqua.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuItemMetal.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuItemNimbus.setForeground(new java.awt.Color(88, 65, 115));
+        jMenuItemWindows.setForeground(new java.awt.Color(88, 65, 115));
     }
     //</editor-fold>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2338,7 +2555,6 @@ public class AquaCalculator extends javax.swing.JFrame {
     private void setNimbus() {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                System.out.println(info.getName());
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
@@ -2377,19 +2593,12 @@ public class AquaCalculator extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                System.out.println(info.getName());
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AquaCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AquaCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AquaCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AquaCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
@@ -2398,7 +2607,6 @@ public class AquaCalculator extends javax.swing.JFrame {
         // panes:
 
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
@@ -2451,26 +2659,29 @@ public class AquaCalculator extends javax.swing.JFrame {
     private javax.swing.JButton jButtonTrhee;
     private javax.swing.JButton jButtonTwo;
     private javax.swing.JButton jButtonZero;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelCalculator;
     private javax.swing.JLabel jLabelCelsius;
     private javax.swing.JLabel jLabelFarenheit;
+    private javax.swing.JLabel jLabelImage;
     private javax.swing.JLabel jLabelKMH;
     private javax.swing.JLabel jLabelKN;
     private javax.swing.JLabel jLabelKelvin;
     private javax.swing.JLabel jLabelMPH;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuAbout;
+    private javax.swing.JMenu jMenuAppereance;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCalculator;
     private javax.swing.JMenuItem jMenuCopy;
     private javax.swing.JMenu jMenuEdit;
     private javax.swing.JMenuItem jMenuItemAqua;
+    private javax.swing.JMenuItem jMenuItemAquaPanther;
+    private javax.swing.JMenuItem jMenuItemAquaSnow;
     private javax.swing.JMenuItem jMenuItemMetal;
     private javax.swing.JMenuItem jMenuItemNimbus;
+    private javax.swing.JMenuItem jMenuItemWindows;
     private javax.swing.JMenuItem jMenuPaste;
     private javax.swing.JMenu jMenuPrecision;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelAbout;
     private javax.swing.JPanel jPanelDegrees;
     private javax.swing.JPanel jPanelDistances;
     private javax.swing.JRadioButtonMenuItem jRadioButtonEightDecimals;
@@ -2482,10 +2693,10 @@ public class AquaCalculator extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonSixDecimals;
     private javax.swing.JRadioButtonMenuItem jRadioButtonThreeDecimals;
     private javax.swing.JRadioButtonMenuItem jRadioButtonTwoDecimals;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollHistory;
+    private javax.swing.JScrollPane jScrollInfo;
     private javax.swing.JTabbedPane jTabbedPaneConversors;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextAreaInfo;
     private javax.swing.JToggleButton jToggleConverters;
     private javax.swing.ButtonGroup precisionDecimalsGroup;
     // End of variables declaration//GEN-END:variables
